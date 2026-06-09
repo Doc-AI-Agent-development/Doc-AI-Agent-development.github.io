@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Introduction
@@ -42,5 +42,3 @@ need to edit any config to add a page. To fine-tune it:
     "collapsed": false
   }
   ```
-
-See [Example Page](./example.md) for a sampler of Markdown features.
