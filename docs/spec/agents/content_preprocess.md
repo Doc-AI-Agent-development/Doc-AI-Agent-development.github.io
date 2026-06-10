@@ -2,8 +2,6 @@
 sidebar_position: 4
 ---
 
-# Content Preprocess
-
-_#4_
+# 교육자료 전처리 에이전트
 
 _(내용 미정)_

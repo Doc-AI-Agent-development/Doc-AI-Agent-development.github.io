@@ -2,8 +2,6 @@
 sidebar_position: 7
 ---
 
-# Eval Survey Summary
-
-_#7_
+# 교육평가 및 요약 에이전트
 
 _(내용 미정)_

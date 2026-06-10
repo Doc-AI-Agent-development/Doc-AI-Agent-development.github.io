@@ -2,8 +2,6 @@
 sidebar_position: 2
 ---
 
-# Compliance
-
-_#2_
+# 컴플라이언스 에이전트
 
 _(내용 미정)_
