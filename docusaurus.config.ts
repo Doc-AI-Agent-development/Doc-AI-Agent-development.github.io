@@ -61,11 +61,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Doc-AI-Agent-development',
-      logo: {
-        alt: 'Doc-AI-Agent-development',
-        src: 'img/logo.svg',
-      },
+      title: 'AI agent팀',
       items: [
         {
           type: 'docSidebar',
