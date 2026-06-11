@@ -64,6 +64,6 @@ flowchart TD
 
 ## 관련 문서 {#see-also}
 
-* [에이전트 플로우](./agent-flow.md) — 시나리오 개요
+* [에이전트 플로우](./agent-flow.md) : 시나리오 개요
 * [시험 문제 생성 에이전트](../agents/exam_generation.md) · [교육평가 및 요약 에이전트](../agents/eval_survey_summary.md)
 * [교육 콘텐츠 생성](./content-generation.md)
