@@ -72,6 +72,6 @@ flowchart TD
 
 ## 관련 문서 {#see-also}
 
-* [에이전트 플로우](./agent-flow.md) — 시나리오 개요
+* [에이전트 플로우](./agent-flow.md) : 시나리오 개요
 * [컴플라이언스](../agents/compliance.md) · [교육자료 전처리](../agents/content_preprocess.md) · [교육 컨텐츠 생성](../agents/content_generation.md) · [시험 문제 생성](../agents/exam_generation.md) · [요건 검사](../agents/requirement_check.md)
 * [수정과 재생성](./revision.md)
