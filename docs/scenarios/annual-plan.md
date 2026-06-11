@@ -56,6 +56,6 @@ flowchart TD
 
 ## 관련 문서 {#see-also}
 
-* [에이전트 플로우](./agent-flow.md) — 시나리오 개요
+* [에이전트 플로우](./agent-flow.md) : 시나리오 개요
 * [컴플라이언스 에이전트](../agents/compliance.md) · [연간교육 계획 에이전트](../agents/annual_plan.md)
 * [교육 콘텐츠 생성](./content-generation.md)
