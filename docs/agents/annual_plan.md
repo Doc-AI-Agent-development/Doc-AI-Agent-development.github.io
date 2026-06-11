@@ -25,8 +25,7 @@ sidebar_position: 3
 
 ```mermaid
 flowchart LR
-    DIALOG["대화 에이전트"] -->|"발화 라우팅"| ORCH["오케스트레이터<br/>(반복 · 승인)"]
-    ORCH -->|"호출"| SVC["연간교육 계획 에이전트<br/>design_curriculum"]
+    ORCH["오케스트레이터<br/>(반복 · 승인)"] -->|"호출"| SVC["연간교육 계획 에이전트<br/>design_curriculum"]
     SVC -->|"제안 · 개정"| LLM["llm"]
 ```
 
@@ -45,9 +44,7 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    A["design_curriculum"] --> B{"요건 있음?"}
-    B -->|"없음"| BX["진입 거부<br/>(요건 분석 선행 필요)"]
-    B -->|"있음"| C{"이전 계획 있음?"}
+    A["design_curriculum"] --> C{"이전 계획 있음?"}
     C -->|"없음"| D["요건 → 교육 항목 제안"]
     C -->|"있음"| E["피드백 반영 개정<br/>(식별자 보존)"]
     D --> F["항목에 근거 연결"]
