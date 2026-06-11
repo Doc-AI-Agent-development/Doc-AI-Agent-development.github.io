@@ -19,7 +19,7 @@ sidebar_position: 3
 | :-- | :-- |
 | 트리거 | "○○ 교육자료·시험 만들어" |
 | 입력 | 대상 교육, NData 로드맵, (있으면) 연간계획 컨텍스트 |
-| 참여 에이전트 | 컴플라이언스 · 교육자료 전처리 · 교육 컨텐츠 생성 · 시험 문제 생성 · 요건 검사 |
+| 참여 에이전트 | 컴플라이언스 · 교육자료 전처리 · 교육 컨텐츠 생성 · 시험 문제 · 요건 검사 |
 | 산출물 | 발표 자료 · 시험 · 강의평가 설문 |
 
 ## 처리 흐름 {#flow}
@@ -31,7 +31,7 @@ flowchart TD
     PLAN --> CK{"관리자 승인"}
     CK -->|"수정"| PLAN
     CK -->|"승인"| GEN["교육 컨텐츠 생성 에이전트<br/>발표 자료 생성"]
-    CK -->|"승인"| EXAM["시험 문제 생성 에이전트<br/>시험·설문 생성"]
+    CK -->|"승인"| EXAM["시험 문제 에이전트<br/>시험·설문 생성"]
     GEN --> CHK["요건 검사 에이전트<br/>근거·요건 검증"]
     EXAM --> CHK
     CHK -->|"통과"| DONE["발표 자료 · 시험 · 설문"]
@@ -42,7 +42,7 @@ flowchart TD
 2. **교육 자료 구성** : [교육자료 전처리 에이전트](../agents/content_preprocess.md)가 [교육자료 저장소](../data/content-repository.md)의 라우터 레이어에서 문서 범위를 받아, 그 안에서 필수항목별 내용을 모아 교육 자료를 구성합니다.
 3. **구성안 작성** : [교육 컨텐츠 생성 에이전트](../agents/content_generation.md)가 교육 자료로 목차·평가·설문 구성안을 만듭니다.
 4. **승인** : 구성안을 관리자가 승인합니다. 승인 전에는 다음 단계로 넘어가지 않습니다.
-5. **생성(병렬)** : 승인된 구성안으로 교육 컨텐츠 생성 에이전트가 발표 자료를, [시험 문제 생성 에이전트](../agents/exam_generation.md)가 시험과 강의평가 설문을 생성합니다. 발표 자료는 NData HTML 템플릿에 채웁니다.
+5. **생성(병렬)** : 승인된 구성안으로 교육 컨텐츠 생성 에이전트가 발표 자료를, [시험 문제 에이전트](../agents/exam_generation.md)가 시험과 강의평가 설문을 생성합니다. 발표 자료는 NData HTML 템플릿에 채웁니다.
 6. **검증** : [요건 검사 에이전트](../agents/requirement_check.md)가 근거 연결과 요건 충족을 검사합니다. 어긋나면 해당 부분만 다시 생성합니다.
 
 ## 데이터 흐름 {#data}
@@ -53,7 +53,7 @@ flowchart TD
 | 교육 자료 | 교육자료 전처리 | 교육 기준 | 교육 자료(`educationMaterial`) | `document_fetch_tool` · `vector_search_tool` |
 | 구성안 | 교육 컨텐츠 생성 | 교육 자료 | 구성안(`plan`) | — |
 | 발표 자료 | 교육 컨텐츠 생성 | 구성안, 교육 자료 | 발표 자료(`presentation`) | — |
-| 시험·설문 | 시험 문제 생성 | 구성안, 교육 자료 | 시험(`exam`), 설문(`survey`) | — |
+| 시험·설문 | 시험 문제 | 구성안, 교육 자료 | 시험(`exam`), 설문(`survey`) | — |
 | 검증 | 요건 검사 | 발표 자료, 시험, 설문, 교육 기준 | 검증 결과(`verification`) | — |
 
 ## 산출물 {#output}
@@ -73,5 +73,5 @@ flowchart TD
 ## 관련 문서 {#see-also}
 
 * [에이전트 플로우](./agent-flow.md) : 시나리오 개요
-* [컴플라이언스](../agents/compliance.md) · [교육자료 전처리](../agents/content_preprocess.md) · [교육 컨텐츠 생성](../agents/content_generation.md) · [시험 문제 생성](../agents/exam_generation.md) · [요건 검사](../agents/requirement_check.md)
+* [컴플라이언스](../agents/compliance.md) · [교육자료 전처리](../agents/content_preprocess.md) · [교육 컨텐츠 생성](../agents/content_generation.md) · [시험 문제](../agents/exam_generation.md) · [요건 검사](../agents/requirement_check.md)
 * [수정과 재생성](./revision.md)

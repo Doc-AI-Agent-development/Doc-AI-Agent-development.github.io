@@ -20,7 +20,7 @@ sidebar_position: 5
 | `generate_presentation` | 콘텐츠 생성 (발표 자료) | 승인된 구성안으로 발표 자료를 생성합니다 |
 | `revise_presentation` | 수정 | 지정된 섹션만 다시 생성합니다 (식별자 보존) |
 
-구성안을 작성해 관리자 승인을 거친 뒤 발표 자료를 생성합니다. 구성안에는 시험·설문 계획이 포함되며, [시험 문제 생성 에이전트](./exam_generation.md)가 같은 구성안으로 문항을 생성합니다. 모든 섹션과 문항은 교육 자료의 근거에 연결됩니다.
+구성안을 작성해 관리자 승인을 거친 뒤 발표 자료를 생성합니다. 구성안에는 시험·설문 계획이 포함되며, [시험 문제 에이전트](./exam_generation.md)가 같은 구성안으로 문항을 생성합니다. 모든 섹션과 문항은 교육 자료의 근거에 연결됩니다.
 
 ```mermaid
 flowchart LR
@@ -68,6 +68,6 @@ flowchart TD
 ## 관련 문서 {#see-also}
 
 * [교육자료 전처리 에이전트](./content_preprocess.md) — 입력 교육 자료를 구성
-* [시험 문제 생성 에이전트](./exam_generation.md) — 같은 구성안으로 시험·설문 생성
+* [시험 문제 에이전트](./exam_generation.md) — 같은 구성안으로 시험·설문 생성
 * [요건 검사 에이전트](./requirement_check.md) — 생성물 근거 검증
 * [교육 콘텐츠 생성 시나리오](../scenarios/content-generation.md)
