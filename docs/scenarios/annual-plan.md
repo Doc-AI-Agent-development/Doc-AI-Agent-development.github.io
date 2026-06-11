@@ -25,8 +25,8 @@ sidebar_position: 2
 
 ```mermaid
 flowchart TD
-    REQ["관리자: 연간계획 요청"] --> CMP["컴플라이언스<br/>실시 의무 조회"]
-    CMP --> PLAN["연간교육 계획<br/>교육 항목 제안"]
+    REQ["관리자: 연간계획 요청"] --> CMP["컴플라이언스 에이전트<br/>실시 의무 조회"]
+    CMP --> PLAN["연간교육 계획 에이전트<br/>교육 항목 제안"]
     PLAN --> TALK{"관리자 검토"}
     TALK -->|"수정 요청"| PLAN
     TALK -->|"승인"| DONE["연간 교육계획 초안"]

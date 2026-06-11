@@ -26,10 +26,10 @@ sidebar_position: 4
 
 ```mermaid
 flowchart TD
-    SUB["응시·평가 완료"] --> GRADE["시험 문제 생성<br/>주관식 채점"]
+    SUB["응시·평가 완료"] --> GRADE["시험 문제 생성 에이전트<br/>주관식 채점"]
     GRADE --> STAT["백엔드<br/>통계·합불 집계"]
-    STAT --> REP["교육평가 및 요약<br/>결과보고서 초안"]
-    SUB --> REV["교육평가 및 요약<br/>강의평가 종합"]
+    STAT --> REP["교육평가 및 요약 에이전트<br/>결과보고서 초안"]
+    SUB --> REV["교육평가 및 요약 에이전트<br/>강의평가 종합"]
     REP --> DONE["결과보고서 · 강의평가 종합"]
     REV --> DONE
 ```
