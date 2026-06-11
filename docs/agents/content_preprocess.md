@@ -23,8 +23,8 @@ sidebar_position: 4
 
 내용 확보는 문서 성격으로 갈립니다.
 
-- **원문 직접 사용** ([`document_fetch_tool`](../tools/document-fetch-tool.md)) — 문서가 작고 단일 주제이거나 라우터가 골든 문서로 지정한 경우. 검색 없이 본문을 그대로 씁니다.
-- **의미검색** ([`vector_search_tool`](../tools/vector-search-tool.md)) — 문서가 크거나 여러 주제가 섞였을 때. 필수항목별로 관련 조각만 꺼냅니다. 매핑이 없는 신규 교육은 전체에서 검색합니다.
+- **원문 직접 사용** ([`document_fetch_tool`](../tools/document-fetch-tool.md)) : 문서가 작고 단일 주제이거나 라우터가 골든 문서로 지정한 경우. 검색 없이 본문을 그대로 씁니다.
+- **의미검색** ([`vector_search_tool`](../tools/vector-search-tool.md)) : 문서가 크거나 여러 주제가 섞였을 때. 필수항목별로 관련 조각만 꺼냅니다. 매핑이 없는 신규 교육은 전체에서 검색합니다.
 
 검색은 라우터 범위로 하드필터한 뒤 수행하며, 가져온 조각은 출처(`docId`)를 함께 보유합니다.
 
