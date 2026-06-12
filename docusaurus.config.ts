@@ -5,7 +5,6 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Doc-AI-Agent-development',
   tagline: 'Documentation for AI Agent development',
-  favicon: 'img/favicon.ico',
 
   future: {
     v4: true,
@@ -59,7 +58,6 @@ const config: Config = {
   themes: ['@docusaurus/theme-mermaid'],
 
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
