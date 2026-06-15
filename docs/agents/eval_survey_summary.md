@@ -45,7 +45,7 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    ORCH["오케스트레이터"] --> U{"쓰임"}
+    ORCH["오케스트레이터"] --> U{"호출 유형"}
     U -->|"결과보고서"| R1["백엔드 통계·미이수·합불 수령"]
     R1 --> R2["집단 통계 서술"]
     R2 --> O1["resultReport 기록 (초안)"]
