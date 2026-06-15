@@ -23,9 +23,10 @@ sidebar_position: 7
 
 ```mermaid
 flowchart LR
-    BE[("백엔드<br/>통계 · 후기")] -->|"통계 · Review"| SVC["교육평가 및 요약 에이전트"]
+    BE[("백엔드<br/>통계 · 후기")] -->|"통계 · 후기"| SVC["교육평가 및 요약 에이전트"]
     ORCH["오케스트레이터"] -->|"호출"| SVC
-    SVC -->|"서술 · 요약"| LLM["llm"]
+    SVC -->|"결과보고서"| O1["resultReport"]
+    SVC -->|"강의평가 종합"| O2["reviewSummary"]
 ```
 
 ## 입력과 출력 {#io}
@@ -46,7 +47,7 @@ flowchart LR
 flowchart TD
     ORCH["오케스트레이터"] --> U{"쓰임"}
     U -->|"결과보고서"| R1["백엔드 통계·미이수·합불 수령"]
-    R1 --> R2["집단 통계 narrative 서술"]
+    R1 --> R2["집단 통계 서술"]
     R2 --> O1["resultReport 기록 (초안)"]
     U -->|"강의평가"| S1["후기(Review) 수령"]
     S1 --> S2["요약·키워드·대표 인용"]

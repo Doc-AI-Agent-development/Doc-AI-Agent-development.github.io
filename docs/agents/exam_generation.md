@@ -24,7 +24,8 @@ sidebar_position: 6
 ```mermaid
 flowchart LR
     ORCH["오케스트레이터<br/>(생성 · 채점)"] -->|"호출"| SVC["시험 문제 에이전트"]
-    SVC -->|"문항 생성 · 주관식 채점"| LLM["llm"]
+    SVC -->|"생성"| OUT1["시험 · 설문"]
+    SVC -->|"채점"| OUT2["주관식 채점 결과"]
 ```
 
 ## 입력과 출력 {#io}
