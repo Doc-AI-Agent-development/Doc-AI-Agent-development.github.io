@@ -63,7 +63,7 @@ classDiagram
 
 ```mermaid
 flowchart TD
-    REQ["request (팀 또는 교육 식별)"] --> D{"쓰임"}
+    REQ["request (팀 또는 교육 식별)"] --> D{"호출 유형"}
     D -->|"연간계획"| OBL["lookup_obligations<br/>팀 → 교육 목록·주기·법정시간"]
     D -->|"콘텐츠 생성"| CRI["lookup_criteria<br/>교육 → 필수항목·구분·시험유형"]
     OBL --> TOOL["sql_query_tool 조회"]

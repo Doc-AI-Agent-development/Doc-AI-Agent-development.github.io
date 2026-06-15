@@ -45,7 +45,7 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    ORCH["오케스트레이터"] --> U{"쓰임"}
+    ORCH["오케스트레이터"] --> U{"호출 유형"}
     U -->|"생성"| G["구성안·교육 자료 → 문항·설문 생성"]
     G --> EV["문항을 근거에 연결"]
     EV --> OUT1["exam · survey 기록"]
