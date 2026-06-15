@@ -26,8 +26,8 @@ code/                                   # 코드 repo (git → EC2 pull)
     │   ├── requirement_check.py        # 근거·요건 검증
     │   └── annual_plan.py              # 연간 교육계획 설계
     │
-    ├── graphs/                         # LangGraph — 시나리오 1개 = 그래프 1개
-    │   ├── registry.py                 # scope → graph 매핑 (dialog가 사용)
+    ├── graphs/                         # LangGraph — 부모 그래프 1개 + 시나리오 서브그래프
+    │   ├── main.py                     # 부모 그래프: dialog 라우터 노드 → 서브그래프 분기
     │   ├── annual_plan.py
     │   ├── content_generation.py
     │   ├── grading_report.py
