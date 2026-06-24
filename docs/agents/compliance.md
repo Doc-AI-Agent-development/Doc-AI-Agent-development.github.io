@@ -18,8 +18,8 @@ sidebar_position: 2
 
 | 쓰임 | 호출 | 가져오는 것 |
 | :-- | :-- | :-- |
-| 연간 교육계획 | `lookup_obligations` | 팀이 실시해야 할 교육 목록과 주기·법정시간·근거 |
-| 교육 콘텐츠 생성 | `lookup_criteria` | 한 교육의 필수항목·구분·시험유형·근거 |
+| 연간 교육계획 | `lookup_team_obligations` | 팀이 실시해야 할 교육 목록과 주기·법정시간·근거 |
+| 교육 콘텐츠 생성 | `lookup_education_criteria` | 한 교육의 필수항목·구분·근거 (교육 메타는 `team_obligations`에서) |
 
 교육과 문서를 잇는 매핑은 여기 없습니다. 어떤 문서를 참고할지는 [교육자료 저장소](../data/content-repository.md)의 라우터 레이어가 담당합니다.
 
@@ -64,8 +64,8 @@ classDiagram
 ```mermaid
 flowchart TD
     REQ["request (팀 또는 교육 식별)"] --> D{"호출 유형"}
-    D -->|"연간계획"| OBL["lookup_obligations<br/>팀 → 교육 목록·주기·법정시간"]
-    D -->|"콘텐츠 생성"| CRI["lookup_criteria<br/>교육 → 필수항목·구분·시험유형"]
+    D -->|"연간계획"| OBL["lookup_team_obligations<br/>팀 → 교육 목록·주기·법정시간"]
+    D -->|"콘텐츠 생성"| CRI["lookup_education_criteria<br/>교육 → 필수항목·구분"]
     OBL --> TOOL["sql_query_tool 조회"]
     CRI --> TOOL
     TOOL --> OUT["requirements 기록"]
