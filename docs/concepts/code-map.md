@@ -19,10 +19,10 @@ backend_ai/
    ├─ graphs/                  탭 그래프 등록
    └─ tabs/
       ├─ annual_plan/          연간 교육계획 탭
-      │  ├─ graph.py           탭 그래프와 오케스트레이터 — 분류·단계 배선·곁가지 재제시
+      │  ├─ graph.py           탭 그래프와 오케스트레이터(분류·단계 배선·곁가지 재제시)
       │  ├─ intake/            진입 판정·교육 목록·설문 (일괄 생성 기본값 포함)
       │  ├─ planner/           계획표 조립·실시월 규칙·저장 계획 복원
-      │  ├─ editor/            대화 반영 — 결정 문서 왕복·전후 비교
+      │  ├─ editor/            대화 반영(결정 문서 왕복·전후 비교)
       │  ├─ conversation/      조회 응대
       │  └─ pipelines/
       │     ├─ generate_plan/  회차별 상세 내용 생성·생성 후 수정
