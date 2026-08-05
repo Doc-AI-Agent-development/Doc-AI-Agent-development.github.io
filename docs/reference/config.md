@@ -21,7 +21,7 @@ sidebar_position: 4
 | `upload_summary_concurrency` | 첨부 요지 추출의 동시 호출 상한 |
 | `generation_stage_dump_dir` | 생성 중간 산출물 덤프 경로 — 값을 지정하면 교시별 중간 결과가 파일로 남음 (진단용) |
 
-## 공유 기반·스킬 경유로 소비되는 키
+## 공유 기반·스킬을 거쳐 읽히는 키
 
 | 키 | 조절하는 것 |
 |---|---|
@@ -36,16 +36,16 @@ sidebar_position: 4
 | `azure_openai_*` | LLM 자격·배포 구성 |
 | `token_usage_log` | 토큰 사용 기록 파일 경로 |
 
-## 선언만 있고 소비되지 않는 키
+## 선언만 있고 읽는 코드가 없는 키
 
 다음 키는 설정에 선언되어 있으나 **현재 읽는 코드가 없습니다**. 새 기능을 이 키에 기대어
-설계하기 전에 소비 코드가 없다는 사실을 확인하십시오.
+설계하기 전에 읽는 코드가 없다는 사실을 확인하십시오.
 
 | 키 | 비고 |
 |---|---|
 | `search_enabled` / 임베딩 관련 키 | 의미 검색 미사용 — 검색은 키워드 기반뿐 |
-| `bff_base_url` | 소비처 없음 |
-| `vision_images_per_doc_max` | 소비처 없음 |
-| `doc_queries_per_module_max` | 소비처 없음 |
+| `bff_base_url` | 읽는 코드 없음 |
+| `vision_images_per_doc_max` | 읽는 코드 없음 |
+| `doc_queries_per_module_max` | 읽는 코드 없음 |
 | `component_asset_base` | 본선 미사용 — 시뮬레이션 전용 렌더 모듈만 참조 |
 | 직접 DB 접속 계열 키 | 주석으로 보존된 과거 구현 전용 — 현행 경로 미사용 |
