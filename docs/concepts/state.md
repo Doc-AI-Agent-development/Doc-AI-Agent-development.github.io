@@ -20,7 +20,7 @@ class AppState(BaseModel):
     content_sheet: ContentSheet | None    # 진행 시트 — 선택 교육·처리한 첨부·질문 카드 답·제외 지정
     syllabus: Syllabus | None             # 구성 계획 (교육자료 구성 계획 수립 문서 참조)
     plan_content: PlanContent | None      # 연간 교육계획에서 조립한 구성 계획 재료 — 원본 서술 포함, 불변
-    evidence_store: EvidenceStore | None  # 수집된 근거 원문 발췌와 수집 당시 재료의 지문
+    evidence_store: EvidenceStore | None  # 수집된 근거 원문 발췌와 수집 당시 재료 기록
     exam_config: ExamConfig | None        # 시험 구성 — None이면 이 회차는 시험을 만들지 않음
     deck: Deck | None                     # 교육자료
     digest: CondensedDeck | None          # 요약본 — 완성된 교육자료 본문이 원천
@@ -61,8 +61,7 @@ class AppState(BaseModel):
 
 한 세션에서 복수의 교육을 작업하기 위해, 작업 관련 필드 묶음(시트·계획·근거·산출물·시험
 구성)이 **교육 단위로 보관·복원**됩니다. 보관 필드 목록은 상태 모델과 작업공간 구조 양쪽에
-**동일한 이름으로 존재해야 합니다** — 이 제약은 [불변식](../maintenance/invariants.md)에서
-다룹니다.
+**동일한 이름으로 존재해야 합니다** — 한쪽에서 빠지면 교육 전환이 실패합니다.
 
 ## 턴 동시성 제어
 

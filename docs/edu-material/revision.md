@@ -24,26 +24,52 @@ sidebar_position: 8
 변경 내역은 수정 결과 데이터에서 정해진 로직으로 정리되어 보고 발화에 공급되며,
 담당자에게는 다음 형태로 표시됩니다(가공 예시).
 
-```markdown
+<div class="example-block">
+
 **갱신본 — 슬라이드 v2(21p) · 시험 v2(10문항)**
 
 - 2교시: 본문 재작성(사고 사례 추가 반영)
 - 3교시: 페이지 순연
 - 시험: 출제 근거 페이지 재계산 3건
-```
+
+</div>
 
 교육자료 수정은 **구성 계획을 변경하지 않습니다**. 산출물 위의 수정은 "**무엇을 가르칠지**"의
 변경이 아니기 때문입니다. 계획 자체를 바꾸는 요청은 계획 수정 경로로
 처리됩니다([구성 계획](./syllabus.md) 참조).
 
-## 연쇄 갱신
+## 데이터 구조
 
-- **같은 턴의 연속 수정** — 한 턴에 수정이 여러 번 이어지면 뒤의 수정이 앞의 결과를
-  이어받습니다. 턴 시작 시점의 세션 상태만 읽으면 같은 턴의 선행 수정이 유실되기
-  때문입니다.
-- **시험지 페이지 재매핑** — 자료 수정으로 페이지가 이동하면 시험 문항의 출처 페이지를
+수정 규모의 판독 결과는 다음 구조로 전달됩니다. 요구가 건드리는 교시마다 판독 항목이
+하나 만들어지고, 위 표의 세 단계는 이 값들의 조합으로 결정됩니다. 여기에는 주요 필드만
+실었으며, 전체 필드 정의는 스키마 파일(`src/schemas/content_tab.py`)에 있습니다.
+
+<pre class="type-block"><code>class <span class="tname">SessionRevisionScope</span>(BaseModel):
+    <span class="cmt">"""수정 요구 범위 판독 — 교시 하나."""</span>
+
+    session_no: int              <span class="cmt"># 대상 교시</span>
+    new_title: str               <span class="cmt"># 제목 변경 요구일 때만 채워진다 — 제목 교체의 근거</span>
+    rework_body: bool            <span class="cmt"># 본문 재작성이 필요한 요구인지</span>
+    target_pages: list[int]      <span class="cmt"># 변경이 특정 페이지에 한정될 때만 — 유닛 교체의 근거. 빈 목록은 교시 전체</span>
+    layout_change: bool          <span class="cmt"># 배치·이미지가 걸린 요구 — 교시 재작성으로 보내는 표시</span>
+
+
+class <span class="tname">RevisionScope</span>(BaseModel):
+    <span class="cmt">"""범위 판독 결과 — 요구가 건드리는 교시들의 목록."""</span>
+
+    items: list[<span class="tname">SessionRevisionScope</span>]
+</code></pre>
+
+수정이 만든 갱신본의 버전과 변경 내역은 덱에 기록됩니다 — [교육자료
+생성](./generation.md)의 데이터 구조에서 다룹니다.
+
+한 턴에 수정이 여러 번 이어지면 **뒤의 수정이 앞의 결과를 이어받습니다**.
+
+## 함께 갱신되는 산출물
+
+- **시험지** — 자료 수정으로 페이지가 이동하면 시험 문항의 출처 페이지를
   새 범위로 보정하고 시험지를 다시 렌더합니다.
-- **요약본 재생성** — 요약본 분량 지정이 유지된 경우, 본문이 변경된 턴에는 요약본을
+- **요약본** — 요약본 분량 지정이 유지된 경우, 본문이 변경된 턴에는 요약본을
   재생성합니다. 재생성에 실패해도
   **기존 요약본을 제거하지 않습니다** — 이미 담당자에게 전달된 산출물이기 때문입니다.
   요약본에 대한 의견 반영("요약본 더 짧게")도 같은 경로로 처리됩니다.
@@ -62,7 +88,11 @@ sidebar_position: 8
   검증됩니다.
 - **문항 추가·삭제** — 추가는 생성 파이프라인을 재사용하고, 삭제는 코드가 수행합니다.
   변경 후 유형별 문항 수를 전수 재집계하고 배점을 재균등합니다.
-- **설문 문항 추가·삭제** — **LLM 없이 결정적으로 처리**됩니다.
+- **설문 문항 추가·삭제** — 별도의 생성 LLM 호출 없이 처리됩니다. 요구를 해석한 대화
+  LLM이 문항 문안과 유형(척도형·주관식), 삭제 번호를 도구 인자로 전달하면, 코드가 그
+  값 그대로 문항을 목록 끝에 추가하거나 해당 번호의 문항을 제거하고 설문을 다시
+  렌더합니다. 삭제 번호를 특정하지 못하면 삭제하지 않고 그 사실을 변경 내역에 남깁니다.
+  지원 범위는 추가와 삭제이며, **기존 문항의 문안을 고치는 동작은 없습니다**.
 
 ## 확정
 
@@ -71,14 +101,15 @@ sidebar_position: 8
 - 산출물이 없거나 확정 차단 사유가 세션 상태에 기록되어 있으면 **확정이 거부됩니다**.
   차단 사유의 보관 자리는 [상태와 세션](../concepts/state.md)의 상태 모델에서 다룹니다.
 - 최종 패키지 표(산출물별 버전·규모·형식)는 코드가 생성합니다.
-- 화면이 응시 링크를 제공하고 자료에 링크 삽입 위치가 있는 구성인 경우, 확정 시 해당
-  위치에 응시 안내가 연결됩니다.
+- 현재 구성은 교육자료에 응시 링크(QR) 자리를 넣지 않습니다. 응시 URL과 QR 발급은
+  백엔드가 담당하며, 최종 패키지 표의 응시 안내 문구가 이 사실을 알립니다.
 - 확정은 **저장이나 배포를 수행하지 않습니다**. 산출물의 저장·전달은 화면과 백엔드의
   책임입니다.
 
 최종 패키지 표의 모양입니다(가공 예시).
 
-```markdown
+<div class="example-block">
+
 **최종 산출물 패키지**
 
 | 산출물 | 버전 | 규모 | 전달 형식 |
@@ -86,8 +117,9 @@ sidebar_position: 8
 | 교육자료 | v2 | 2교시 · 21p | 교시별 HTML |
 | 시험지 | v2 | 10문항(선다 6 · 단답형 2 · O/X 2) | HTML |
 
-_응시: 시험은 온라인 응시용으로 생성됩니다. 응시 URL·QR 발급은 백엔드가 처리합니다._
-```
+_응시: 시험은 온라인 응시용으로 생성됩니다(문서에는 QR을 넣지 않음). 응시 URL·QR 발급은 백엔드가 처리합니다._
+
+</div>
 
 ## 코드 참조
 
@@ -96,4 +128,5 @@ _응시: 시험은 온라인 응시용으로 생성됩니다. 응시 URL·QR 발
 | 수정 파이프라인(범위 판독·재생성) | `ContentRevisionAgent` | `src/tabs/edu_material/pipelines/revise_content/agent.py` |
 | 수정 실행·요약본 연쇄 재생성 | `apply_revisions` | `src/tabs/edu_material/handle_request/revise.py` |
 | 법정 내용 판정 | `judge_legal` | `src/tabs/edu_material/pipelines/revise_content/agent.py` |
-| 확정(패키지·응시 링크 연결) | `link_exam_qr` / `package_block` | `src/tabs/edu_material/handle_request/finalize.py` |
+| 범위 판독 스키마 | `RevisionScope` / `SessionRevisionScope` | `src/schemas/content_tab.py` |
+| 확정(패키지 구성) | `link_exam_qr` / `package_block` | `src/tabs/edu_material/handle_request/finalize.py` |
