@@ -15,6 +15,9 @@ sidebar_position: 5
 | 요약본 | `digest` | `artifacts.digest` | `src/schemas/education_content.py` |
 | 시험지 | `exam` | `artifacts.exam` | `src/schemas/exam.py` |
 | 강의평가 설문 | `survey` | `artifacts.survey` | `src/schemas/exam.py` |
+| 연간 계획 | `annual_plan` | `artifacts.annual_plan` | `src/schemas/training_plan.py` |
+| 계획 기준선 | `checklist` | `artifacts.checklist` | `src/schemas/checklist.py` |
+| 요건 검사 결과 | `verification` | `artifacts.verification` | `src/schemas/verification.py` |
 
 ## 핵심 개념
 
@@ -31,6 +34,9 @@ sidebar_position: 5
 | 교육 작업공간 | `CourseWorkspace` | `src/schemas/state.py` |
 | 첨부 요지 | `UploadBrief` | `src/schemas/content_tab.py` |
 | 유닛 (내용 최소 단위) | `ContentUnit` 계열 | `src/schemas/education_content.py` |
+| 설문 시트 | `QuestionSheet` | `src/schemas/questions.py` |
+| 결정 문서 | `EditableDoc` | `src/tabs/annual_plan/editor/schemas.py` |
+| 회차 계획 | `SessionPlan` | `src/schemas/checklist.py` |
 | 세션 상태 | `AppState` | `src/schemas/state.py` |
 
 ## 처리 주체
@@ -44,5 +50,12 @@ sidebar_position: 5
 | 생성 파이프라인 | `DeckComposer` | `src/tabs/edu_material/pipelines/generate_content/` |
 | 시험 생성 파이프라인 | `ExamGenerationAgent` | `src/tabs/edu_material/pipelines/generate_exam/` |
 | 수정 파이프라인 | `ContentRevisionAgent` | `src/tabs/edu_material/pipelines/revise_content/` |
+| 연간 탭 오케스트레이터 | `AnnualTabOrchestrator` | `src/tabs/annual_plan/graph.py` |
+| 설문 에이전트 | `AnnualIntakeAgent` | `src/tabs/annual_plan/intake/` |
+| 계획표 조립기 | `PlannerAgent` | `src/tabs/annual_plan/planner/` |
+| 대화 반영 편집기 | `PlanEditorAgent` | `src/tabs/annual_plan/editor/` |
+| 생성·수정 에이전트 | `AnnualPlanAgent` | `src/tabs/annual_plan/pipelines/generate_plan/` |
+| 요건 검사기 | `PlanCheckerAgent` | `src/tabs/annual_plan/pipelines/verify/` |
+| 조회 응대 에이전트 | `ConversationAgent` | `src/tabs/annual_plan/conversation/` |
 | 추천 문구 에이전트 | `SuggesterAgent` | `src/agents/suggester/` |
 | 설문·평가 공용 에이전트 | `EvalSurveySummaryAgent` | `src/agents/eval_survey_summary/` |

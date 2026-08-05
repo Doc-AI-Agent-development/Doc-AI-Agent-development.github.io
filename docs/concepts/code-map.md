@@ -18,7 +18,15 @@ backend_ai/
    ├─ skills/                  외부 자원 창구 — edu_ai(백엔드 API) · documents(검색) · storage(스토리지)
    ├─ graphs/                  탭 그래프 등록
    └─ tabs/
-      ├─ annual_plan/          연간 교육계획 탭 (구성 상세는 해당 장에서 — 작성 예정)
+      ├─ annual_plan/          연간 교육계획 탭
+      │  ├─ graph.py           탭 그래프와 오케스트레이터 — 분류·단계 배선·곁가지 재제시
+      │  ├─ intake/            진입 판정·교육 목록·설문 (일괄 생성 기본값 포함)
+      │  ├─ planner/           계획표 조립·실시월 규칙·저장 계획 복원
+      │  ├─ editor/            대화 반영 — 결정 문서 왕복·전후 비교
+      │  ├─ conversation/      조회 응대
+      │  └─ pipelines/
+      │     ├─ generate_plan/  회차별 상세 내용 생성·생성 후 수정
+      │     └─ verify/         요건 검사
       └─ edu_material/         교육자료 생성 탭
          ├─ graph.py           탭 그래프와 오케스트레이터
          ├─ handle_request/    대화 처리 — 작업 에이전트·도구·생성/수정 실행·확정
@@ -38,6 +46,12 @@ backend_ai/
 | `src/schemas/` | [구성 계획](../edu-material/syllabus.md), [상태와 세션](./state.md), [이름 사전](../reference/names.md) |
 | `src/agents/` | [LLM 호출 지도](../reference/llm-calls.md), [개요](../overview.md)의 공유 기반 |
 | `src/skills/` | [외부 의존](../reference/external-services.md) |
+| `src/tabs/annual_plan/graph.py` | [요청 처리 흐름](./request-lifecycle.md), [시작과 진입](../annual-plan/entry.md) |
+| `src/tabs/annual_plan/intake/` | [시작과 진입](../annual-plan/entry.md), [교육 목록 확정](../annual-plan/course-list.md), [설문과 질문 카드](../annual-plan/questions.md) |
+| `src/tabs/annual_plan/editor/` | [대화 반영 방식](../annual-plan/edits.md) |
+| `src/tabs/annual_plan/planner/` | [연간 계획표 확인](../annual-plan/plan-table.md) |
+| `src/tabs/annual_plan/pipelines/` | [계획 생성](../annual-plan/generation.md), [요건 검사](../annual-plan/verification.md), [계획 수정과 조회](../annual-plan/revision.md) |
+| `src/tabs/annual_plan/conversation/` | [계획 수정과 조회](../annual-plan/revision.md) |
 | `src/tabs/edu_material/graph.py` | [요청 처리 흐름](./request-lifecycle.md) |
 | `src/tabs/edu_material/handle_request/` | [요청 처리 흐름](./request-lifecycle.md), [교육 선택과 진입](../edu-material/course-entry.md), [생성 설정과 질문 카드](../edu-material/settings.md), [첨부 자료 처리](../edu-material/uploads.md), [수정과 확정](../edu-material/revision.md) |
 | `src/tabs/edu_material/syllabus/` | [구성 계획](../edu-material/syllabus.md) |

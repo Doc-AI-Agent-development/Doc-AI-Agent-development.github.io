@@ -4,15 +4,14 @@ sidebar_position: 2
 
 # 상태와 세션
 
-세션 상태는 **단일 상태 모델**에 담겨 **턴 사이에 유지**됩니다. 이 페이지는 교육자료 생성 탭이
+세션 상태는 **단일 상태 모델**에 담겨 **턴 사이에 유지**됩니다. 이 페이지는 두 대화형 탭이
 사용하는 상태 필드와 저장·복원 방식, 동시성 제어를 다룹니다.
 
 ## 상태 모델
 
 전체 탭이 하나의 상태 모델을 공유하되, **탭별 필드는 분리**되어 있습니다. 아래는
-교육자료 생성 탭이 사용하는 필드의 요약이며, 전체 필드 정의는 스키마
-파일(`src/schemas/state.py`)에 있습니다. 연간 교육계획 탭의 필드는 해당 장에서
-다룹니다(작성 예정).
+두 탭이 사용하는 필드의 요약이며, 전체 필드 정의는 스키마
+파일(`src/schemas/state.py`)에 있습니다.
 
 ```python
 class AppState(BaseModel):
@@ -27,11 +26,22 @@ class AppState(BaseModel):
     digest: CondensedDeck | None          # 요약본 — 완성된 교육자료 본문이 원천
     exam: Exam | None                     # 시험지
     survey: Survey | None                 # 강의평가 설문
-    verification: Verification | None     # 확정 차단 사유 보관 자리 — 현재 채우는 경로 없음(방어용)
+    verification: Verification | None     # 요건 검사 결과 — 연간 탭이 채움 (교육자료 탭에는 채우는 경로 없음)
     workspaces: list[CourseWorkspace]     # 보관된 교육 작업공간 목록
     upload_briefs: list[UploadBrief]      # 첨부 요지 캐시 — 세션 수준(교육 전환과 무관)
     messages: list[ChatMessage]           # 대화 메시지 — 표시용 텍스트만
     context: dict                         # 화면 컨텍스트 + 내부 전용 키
+```
+
+```python
+class AppState(BaseModel):
+    """(계속) 연간 교육계획 탭이 쓰는 필드."""
+
+    question_sheet: QuestionSheet | None   # 설문 시트 — 교육 목록·질문 답·과정별 결정
+    checklist: TrainingChecklist | None    # 계획 기준선 — 회차·시간·주제 배분 (계획표의 원천)
+    annual_plan: AnnualPlan | None         # 연간 계획 — 회차 단위 행과 상세 내용
+    missing_fields: list[MissingField]     # 미정 값 되물음 목록
+    awaiting: str | None                   # 대기 상태 — 질문·승인·되물음 게이트
 ```
 
 ## 체크포인트
@@ -71,6 +81,7 @@ class AppState(BaseModel):
 |---|---|---|
 | 상태 모델 | `AppState` | `src/schemas/state.py` |
 | 진행 시트·근거 저장 구조 | `ContentSheet` / `EvidenceStore` | `src/schemas/content_tab.py` |
+| 연간 탭 상태 구조 | `QuestionSheet` / `TrainingChecklist` / `AnnualPlan` | `src/schemas/questions.py` · `checklist.py` · `training_plan.py` |
 | 작업공간 구조·보관 필드 목록 | `CourseWorkspace` / `WORK_FIELDS` | `src/schemas/state.py` / `src/tabs/edu_material/handle_request/workspace.py` |
 | 체크포인트 열기 | — | `src/api/main.py` |
 | 턴 동시성 제어·되돌림 | `begin_exclusive_turn` | `src/api/turns.py` |
