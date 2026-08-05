@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 # 디렉터리 구조
@@ -18,7 +18,7 @@ backend_ai/
    ├─ skills/                  외부 자원 창구 — edu_ai(백엔드 API) · documents(검색) · storage(스토리지)
    ├─ graphs/                  탭 그래프 등록
    └─ tabs/
-      ├─ annual_plan/          연간 교육계획 탭 (이 문서의 범위 밖)
+      ├─ annual_plan/          연간 교육계획 탭 (구성 상세는 해당 장에서 — 작성 예정)
       └─ edu_material/         교육자료 생성 탭
          ├─ graph.py           탭 그래프와 오케스트레이터
          ├─ handle_request/    대화 처리 — 작업 에이전트·도구·생성/수정 실행·확정
@@ -45,7 +45,6 @@ backend_ai/
 | `src/tabs/edu_material/pipelines/generate_content/` | [교육자료 생성](../edu-material/generation.md) |
 | `src/tabs/edu_material/pipelines/generate_exam/` | [시험과 강의평가](../edu-material/exam.md) |
 | `src/tabs/edu_material/pipelines/revise_content/` | [수정과 확정](../edu-material/revision.md) |
-| `tests/` | [테스트 지형](../maintenance/testing.md) |
 
 에이전트 공통 기반 디렉터리 아래에는 **과거 구조의 흔적**(내용 없는 디렉터리)이 남아 있을 수
 있습니다.

@@ -6,7 +6,7 @@ sidebar_position: 3
 
 AI 서비스가 의존하는 외부 자원 다섯 가지와, 각 자원에 접근할 수 없을 때의 동작을
 정리합니다. 외부 호출 실패는 **예외로 전파되지 않고 안내 사실로 변환**되는 것이 기본
-원칙입니다([설계 원칙](../concepts/design-principles.md)의 실패 처리 참조).
+원칙입니다([설계 원칙](../maintenance/design-principles.md)의 실패 처리 참조).
 
 ## 백엔드 교육 데이터 API
 

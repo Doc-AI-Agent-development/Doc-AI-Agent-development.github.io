@@ -49,7 +49,7 @@ sidebar_position: 5
   첨부만으로 근거를 구성합니다. [근거 수집](./evidence.md)에서 다룹니다.
 
 첨부 목록·제외 지정·근거 범위가 변경되면 **근거를 다시 수집하기 전까지** 생성이
-차단됩니다([설계 원칙](../concepts/design-principles.md)의 근거 기반 생성 참조).
+차단됩니다([설계 원칙](../maintenance/design-principles.md)의 근거 기반 생성 참조).
 
 ## 코드 참조
 
