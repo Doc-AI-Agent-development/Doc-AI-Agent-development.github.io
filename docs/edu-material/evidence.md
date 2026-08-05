@@ -76,7 +76,7 @@ flowchart LR
 승계하며, 새로 생긴 교시만 검색을 수행합니다. 대응이
 끊긴 근거는 폐기합니다. 증분 재구성에 실패하면 전량 재수집으로 대체합니다.
 
-## 대화 중 근거 조회
+## 대화 중 문서 원문 조회
 
 담당자가 근거의 자세한 내용을 물으면, LLM이 근거 조회 도구로 해당 근거의 **원문 전문**을
 확보해 답합니다. 조회 결과는 대화 응답에 실을 수 있는 분량 한도 내에서 제공되며, 한도를
@@ -86,9 +86,9 @@ flowchart LR
 
 | 구성 요소 | 코드 이름 | 모듈 경로 |
 |---|---|---|
-| 근거 수집 파이프라인 | `ContentEvidenceAgent` | `src/tabs/edu_material/pipelines/collect_evidence/agent.py` |
-| 근거 전문 공급·예산 조정 | `evidence_full_text` / `fit_to_budget` | `src/tabs/edu_material/pipelines/collect_evidence/supply.py` |
-| 재수집 게이트 | `basis_of` / `is_stale` | `src/tabs/edu_material/handle_request/evidence_basis.py` |
-| 증분 재구성 | `rebuild_after_revision` | `src/tabs/edu_material/pipelines/collect_evidence/agent.py` |
+| 문서 수집 파이프라인 | `ContentEvidenceAgent` | `src/tabs/edu_material/pipelines/collect_evidence/agent.py` |
+| 문서 전문 공급·분량 한도 조정 | `evidence_full_text` / `fit_to_budget` | `src/tabs/edu_material/pipelines/collect_evidence/supply.py` |
+| 문서 재수집 게이트 | `basis_of` / `is_stale` | `src/tabs/edu_material/handle_request/evidence_basis.py` |
+| 수정 후 문서 재구성 | `rebuild_after_revision` | `src/tabs/edu_material/pipelines/collect_evidence/agent.py` |
 | 사내 문서 검색·원문 조회 | `DocumentsSearch` | `src/skills/documents/queries.py` |
-| 대화용 근거 조회 도구 | `build_evidence_lookup_tool` | `src/tabs/edu_material/pipelines/collect_evidence/supply.py` |
+| 대화 중 문서 원문 조회 도구 | `build_evidence_lookup_tool` | `src/tabs/edu_material/pipelines/collect_evidence/supply.py` |

@@ -24,6 +24,13 @@
   width: 100%;
 }
 
+/* 한국어 낱말 중간 줄바꿈 방지 — 좁은 표 열에서 글자 단위로 세로 꺾이는 것을 막고
+   어절 단위로만 줄바꿈한다. 긴 코드 토큰은 overflow-wrap이 안전망. */
+.markdown {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
 /* 타입 정의 블록 — 중요 타입의 클래스명을 사이트 전역에서 같은 색으로 표시한다.
    새 타입에 색이 필요하면 여기 tname-* 클래스를 추가하고 문서에서 재사용한다. */
 .type-block {
