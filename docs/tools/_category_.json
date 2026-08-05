@@ -1,9 +1,0 @@
-{
-  "label": "Tool 박스",
-  "position": 5,
-  "collapsed": false,
-  "link": {
-    "type": "doc",
-    "id": "tools/overview"
-  }
-}

@@ -17,7 +17,7 @@ const config: Config = {
   organizationName: 'Doc-AI-Agent-development',
   projectName: 'Doc-AI-Agent-development.github.io',
 
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
 
   // .md = plain markdown (no JSX in `{...}` expressions); .mdx = MDX.
   // Docusaurus v4's default is 'mdx' for both extensions, which makes
@@ -27,7 +27,7 @@ const config: Config = {
     format: 'detect',
     mermaid: true,
     hooks: {
-      onBrokenMarkdownLinks: 'warn',
+      onBrokenMarkdownLinks: 'throw',
     },
   },
 

@@ -17,6 +17,13 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
+/* 표가 내용 폭으로 쪼그라들지 않고 본문 전폭을 쓰게 한다 — 코드 경로가 긴 열에 눌려
+   좁은 열이 낱말 단위로 세로 줄바꿈되는 문제를 막는다. */
+.markdown table {
+  display: table;
+  width: 100%;
+}
+
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   --ifm-color-primary: #25c2a0;
