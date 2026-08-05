@@ -9,9 +9,9 @@ sidebar_position: 2
 
 ## 교육 후보 목록
 
-세션에 팀 정보가 제공되면, 해당 팀의 연간계획에 등록된 교육 목록을 조회해 후보 표로
+세션에 팀 정보가 제공되면, 해당 팀의 연간 교육계획에 등록된 교육 목록을 조회해 후보 표로
 제시합니다. 표에는 교육명, 회차, 교육시간과 함께 화면이 제공하는 작성 현황(이미 자료가
-작성된 교육 표시)이 반영됩니다. 이 표는 백엔드 API에서 조회한 연간계획 데이터를 정해진
+작성된 교육 표시)이 반영됩니다. 이 표는 백엔드 API에서 조회한 연간 교육계획 데이터를 정해진
 로직으로 조립한 것이며, LLM은 **표를 다시 쓰거나 요약하지 않고** 응답에 그대로 포함합니다 —
 교육명·회차 같은 값의 정확성을 LLM 재작성에 맡기지 않기 위한 규칙입니다.
 
@@ -38,7 +38,7 @@ sidebar_position: 2
 
 | 경로 | 조건 | 계획 재료 |
 |---|---|---|
-| 연간계획 기반 | 후보 목록에서 선택 | 연간계획 행의 교육내용 서술, 교육과정 정보, 법령 근거 |
+| 연간 교육계획 기반 | 후보 목록에서 선택 | 연간 교육계획 행의 교육내용 서술, 교육과정 정보, 법령 근거 |
 | 즉석 주제 | 계획에 없는 주제를 직접 지정 | 지정한 주제와 사내 문서 검색 결과 |
 | 첨부 문서 기반 | 업로드한 문서를 기반으로 지정 | 해당 문서의 내용 |
 
@@ -66,5 +66,5 @@ sidebar_position: 2
 | 교육 선택 단계의 대화 도구(후보 표·진입·복귀) | `_select_tools` | `src/tabs/edu_material/handle_request/agent.py` |
 | 교육 후보 재조회 | `_refresh_candidates` | `src/tabs/edu_material/handle_request/agent.py` |
 | 번호 단답 즉시 진입 | `_prematch` | `src/tabs/edu_material/handle_request/agent.py` |
-| 연간계획 재료 조립 | `AnnualPlanLoader` | `src/tabs/edu_material/syllabus/load_annual_plan.py` |
+| 연간 교육계획 재료 조립 | `AnnualPlanLoader` | `src/tabs/edu_material/syllabus/load_annual_plan.py` |
 | 작업공간 보관·복원 | `archive_active` / `match_workspace` | `src/tabs/edu_material/handle_request/workspace.py` |

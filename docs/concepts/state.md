@@ -17,7 +17,7 @@ sidebar_position: 2
 |---|---|
 | `content_sheet` | 진행 시트 — 선택 교육, 처리한 첨부 목록, 질문 카드 답변, 제외 지정 등 |
 | `syllabus` | 구성 계획 ([구성 계획](../edu-material/syllabus.md)) |
-| `plan_content` | 연간계획에서 조립한 재료 — 원본 서술 포함, 불변 |
+| `plan_content` | 연간 교육계획에서 조립한 재료 — 원본 서술 포함, 불변 |
 | `evidence_store` | 수집된 근거와 수집 당시 재료 지문 |
 | `exam_config` | 시험 구성 — 값이 없으면 시험 미생성 |
 | `deck` / `digest` / `exam` / `survey` | 산출물 — 교육자료·요약본·시험지·설문 |

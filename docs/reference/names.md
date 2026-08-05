@@ -23,7 +23,7 @@ sidebar_position: 5
 | 구성 계획 | `Syllabus` | `src/schemas/syllabus.py` |
 | 교시 | `SyllabusSession` | `src/schemas/syllabus.py` |
 | 생성 설정 | `GenerationSettings` | `src/schemas/syllabus.py` |
-| 연간계획 재료 (원본 불변) | `PlanContent` / `annual_source_plan` | `src/schemas/education_content.py` |
+| 연간 교육계획 재료 (원본 불변) | `PlanContent` / `annual_source_plan` | `src/schemas/education_content.py` |
 | 근거 저장소·근거 항목 | `EvidenceStore` / `EvidenceItem` | `src/schemas/content_tab.py` |
 | 근거 재료 지문 | `EvidenceBasis` | `src/schemas/content_tab.py` |
 | 진행 시트 | `ContentSheet` | `src/schemas/content_tab.py` |
