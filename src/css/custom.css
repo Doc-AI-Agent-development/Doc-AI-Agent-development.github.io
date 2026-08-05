@@ -24,6 +24,26 @@
   width: 100%;
 }
 
+/* 타입 정의 블록 — 중요 타입의 클래스명을 사이트 전역에서 같은 색으로 표시한다.
+   새 타입에 색이 필요하면 여기 tname-* 클래스를 추가하고 문서에서 재사용한다. */
+.type-block {
+  background: var(--ifm-code-background);
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 85%;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+.type-block code { background: none; border: none; padding: 0; }
+.type-block .cmt { color: var(--ifm-color-emphasis-600); }
+.tname { font-weight: 700; }
+.tname-syllabus { color: #6d28d9; }
+.tname-genset { color: #b45309; }
+.tname-session { color: #0e7490; }
+[data-theme='dark'] .tname-syllabus { color: #a78bfa; }
+[data-theme='dark'] .tname-genset { color: #fbbf24; }
+[data-theme='dark'] .tname-session { color: #22d3ee; }
+
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   --ifm-color-primary: #25c2a0;

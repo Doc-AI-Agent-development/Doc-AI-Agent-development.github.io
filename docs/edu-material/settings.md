@@ -16,6 +16,10 @@ sidebar_position: 3
 
 ## 설정 항목
 
+코드에서 이 항목들은 구성 계획 안의
+<span class="tname tname-genset">GenerationSettings</span> 타입에
+저장됩니다([교육자료 구성 계획 수립](./syllabus.md)의 데이터 구조 참조).
+
 | 항목 | 결정 내용 |
 |---|---|
 | 문서 형태 | 세로형 문서 / 가로형 발표 자료 |

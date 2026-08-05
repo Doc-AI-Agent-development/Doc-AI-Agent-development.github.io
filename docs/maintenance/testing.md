@@ -15,7 +15,7 @@ sidebar_position: 5
 | 파일 | 고정하는 동작 |
 |---|---|
 | `test_content_intake.py` | 작업 에이전트의 결정적 경로 전반 — 후보 표, 번호 즉시 진입, 카드→계획 이동, 질문 카드 문법 |
-| `test_syllabus_model.py` | 교시 번호 재부여와 파생 추적(병합·분할·신설·삭제) |
+| `test_syllabus_model.py` | 교시 번호 재부여와 출처 교시 기록(병합·분할·신설·삭제) |
 | `test_syllabus_settings.py` | 카드 답변의 단방향 이동 |
 | `test_syllabus_entry.py` / `test_syllabus_wiring.py` | 계획 재료 조립과 계획 생성 경로의 단일화 |
 | `test_evidence_selection.py` | 검색 질의·후보 처리·본문 중복 제거 |

@@ -9,23 +9,30 @@ sidebar_position: 2
 
 ## 상태 모델
 
-전체 탭이 하나의 상태 모델을 공유하되, **탭별 필드는 분리**되어 있습니다. 아래 표는
-교육자료 생성 탭이 사용하는 필드이며, 연간 교육계획 탭의 필드는 해당 장에서
+전체 탭이 하나의 상태 모델을 공유하되, **탭별 필드는 분리**되어 있습니다. 아래는
+교육자료 생성 탭이 사용하는 필드의 요약이며, 정확한 계약은 스키마
+파일(`src/schemas/state.py`)이 기준입니다. 연간 교육계획 탭의 필드는 해당 장에서
 다룹니다(작성 예정).
 
-| 필드 | 내용 |
-|---|---|
-| `content_sheet` | 진행 시트 — 선택 교육, 처리한 첨부 목록, 질문 카드 답변, 제외 지정 등 |
-| `syllabus` | 구성 계획 ([구성 계획](../edu-material/syllabus.md)) |
-| `plan_content` | 연간 교육계획에서 조립한 구성 계획 재료 — 원본 서술 포함, 불변 |
-| `evidence_store` | 수집된 근거와 수집 당시 재료의 지문 ([근거 수집](../edu-material/evidence.md)) |
-| `exam_config` | 시험 구성 — 값이 없으면 시험 미생성 |
-| `deck` / `digest` / `exam` / `survey` | 산출물 — 교육자료·요약본·시험지·설문 |
-| `verification` | 확정 차단 사유 보관 자리 (현재 채우는 경로 없음 — 방어용) |
-| `workspaces` | 보관된 교육 작업공간 목록 |
-| `upload_briefs` | 첨부 요지 캐시 — 세션 수준(교육 전환과 무관) |
-| `messages` | 대화 메시지 — 표시용 텍스트만 |
-| `context` | 화면 컨텍스트 + 내부 전용 키 |
+```python
+class AppState(BaseModel):
+    """세션 상태 — 전체 탭이 공유하는 단일 모델. 아래는 교육자료 생성 탭이 쓰는 필드."""
+
+    content_sheet: ContentSheet | None    # 진행 시트 — 선택 교육·처리한 첨부·질문 카드 답·제외 지정
+    syllabus: Syllabus | None             # 구성 계획 (교육자료 구성 계획 수립 문서 참조)
+    plan_content: PlanContent | None      # 연간 교육계획에서 조립한 구성 계획 재료 — 원본 서술 포함, 불변
+    evidence_store: EvidenceStore | None  # 수집된 근거 원문 발췌와 수집 당시 재료의 지문
+    exam_config: ExamConfig | None        # 시험 구성 — None이면 이 회차는 시험을 만들지 않음
+    deck: Deck | None                     # 교육자료
+    digest: CondensedDeck | None          # 요약본 — 완성된 교육자료 본문이 원천
+    exam: Exam | None                     # 시험지
+    survey: Survey | None                 # 강의평가 설문
+    verification: Verification | None     # 확정 차단 사유 보관 자리 — 현재 채우는 경로 없음(방어용)
+    workspaces: list[CourseWorkspace]     # 보관된 교육 작업공간 목록
+    upload_briefs: list[UploadBrief]      # 첨부 요지 캐시 — 세션 수준(교육 전환과 무관)
+    messages: list[ChatMessage]           # 대화 메시지 — 표시용 텍스트만
+    context: dict                         # 화면 컨텍스트 + 내부 전용 키
+```
 
 ## 체크포인트
 
