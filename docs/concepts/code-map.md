@@ -26,7 +26,7 @@ backend_ai/
          └─ pipelines/
             ├─ collect_evidence/   근거 수집
             ├─ generate_content/   교육자료·요약본 생성 (조각·실측·렌더러 포함)
-            ├─ generate_exam/      시험 생성·조판
+            ├─ generate_exam/      시험 생성·시험지 렌더
             └─ revise_content/     부분 수정
 ```
 

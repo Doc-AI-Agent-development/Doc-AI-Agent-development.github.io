@@ -56,10 +56,10 @@ flowchart LR
    - 예를 들어 "작업 전 확인 절차" 주제에서는 절차 유닛(측정 → 허가 → 감시인 배치)과 표
      유닛(가스별 허용 농도 기준)이 작성됩니다.
 
-4. **교시 단위 정리** — 주제별 작성은 서로의 결과를 보지 못한 채 병렬로 진행되므로,
-   같은 내용이 두 주제에 표현만 달리해 실리거나 한 주제가 다른 주제의 범위를 침범할 수
-   있습니다. 이 단계에서 LLM이 교시의 유닛 전체를 한 번에 보고 중복을 제거하고 흐름을
-   다듬습니다. 분량 예산에 맞추는 조정도 여기서 이루어집니다(아래 분량 처리 절). 이
+4. **교시 단위 정리** — 앞 단계의 주제별 내용 확장에서는 한 교시 안의 주제들이 서로의
+   결과를 보지 못한 채 병렬로 작성됩니다. 그래서 같은 내용이 두 주제에 표현만 달리해
+   실리거나 한 주제가 다른 주제의 범위를 침범할 수 있습니다. 이 단계에서 LLM이 그 교시의
+   유닛 전체를 한 번에 보고 중복을 제거하고 흐름을 다듬습니다. 분량 예산에 맞추는 조정도 여기서 이루어집니다(아래 분량 처리 절). 이
    호출이 실패하면 다듬기 전 유닛을 그대로 사용합니다.
 
 5. **렌더 높이 실측** — 유닛을 실제 산출물과 같은 HTML 조각으로 렌더해 Chrome으로
@@ -75,6 +75,49 @@ flowchart LR
    목록은 채택된 근거 기록에서 코드가 조립해 마지막에 붙입니다. 외부 리소스 참조가 없어
    단독 파일로 열립니다.
 
+## 데이터 구조
+
+생성 결과는 화면에 전달되는 HTML 문서와 함께 **덱**이라는 구조화된 데이터로 저장됩니다.
+덱은 회차 하나의 산출물로, 교시들과 각 교시의 페이지 구성을 담습니다. 페이지마다 실린
+유닛과 사용한 근거가 기록되며, 이 기록이 화면의 페이지별 출처 표시와 부분
+수정([수정과 확정](./revision.md)), 시험 출제의 근거 페이지 검증에 사용됩니다. 여기에는
+주요 필드만 실었으며, 전체 필드 정의는 스키마 파일(`src/schemas/education_content.py`)에
+있습니다.
+
+<pre class="type-block"><code>class <span class="tname tname-deck">DeckPage</span>(BaseModel):
+    <span class="cmt">"""덱의 페이지 한 장 — 번호는 교시를 넘어 문서 전체에서 이어진다."""</span>
+
+    page_no: int
+    kind: str                    <span class="cmt"># 페이지 종류 — 표지·본문·사례·문답·요점·출처 등</span>
+    html: str                    <span class="cmt"># 페이지 본문 조각</span>
+    evidence_ids: list[str]      <span class="cmt"># 이 페이지가 사용한 근거 — 페이지별 출처 표시의 원천</span>
+    unit_ids: list[str]          <span class="cmt"># 이 페이지에 실린 유닛 — 부분 수정이 대상 유닛을 찾는 기록</span>
+
+
+class <span class="tname tname-deck">DeckSession</span>(BaseModel):
+    <span class="cmt">"""덱의 교시 하나 — 표지 → 본문 → 출처 순서의 페이지 묶음."""</span>
+
+    session_no: int
+    title: str
+    goal: str                    <span class="cmt"># 학습목표</span>
+    pages: list[<span class="tname tname-deck">DeckPage</span>]
+    html: str                    <span class="cmt"># 완성된 교시 HTML — 단독 파일로 동작한다</span>
+    composition: ...             <span class="cmt"># 조립 기록(주제·유닛·페이지 구성) — 유닛 단위 수정이 참조한다</span>
+
+
+class <span class="tname tname-deck">Deck</span>(BaseModel):
+    <span class="cmt">"""교육자료 덱 — 회차 하나의 생성 산출물."""</span>
+
+    deck_id: str
+    version: int                 <span class="cmt"># 갱신본 번호 — 수정할 때마다 증가</span>
+    unit: str                    <span class="cmt"># 생성 단위 — 회차 통합 문서 / 교시별 문서</span>
+    template: str                <span class="cmt"># 문서 형태 — 세로형 / 가로형(테마 포함)</span>
+    sessions: list[<span class="tname tname-deck">DeckSession</span>]
+    document_html: str           <span class="cmt"># 회차 통합 문서 HTML — 생성 단위가 회차일 때만 채워진다</span>
+    total_pages: int             <span class="cmt"># 실측 총 페이지 수</span>
+    changes: list[str]           <span class="cmt"># 갱신본 변경 이력</span>
+</code></pre>
+
 ## 문서 형태
 
 | 형태 | 캔버스 | 특징 |
@@ -87,8 +130,7 @@ flowchart LR
 LLM보다 실측 기반 코드가 정확합니다.
 
 생성 단위 설정이 회차 통합이면 교시 문서들을 묶은 통합 문서(전체 목차 포함)가 함께
-생성됩니다. 페이지마다 사용한 근거가 기록되어, 화면에서 페이지별 출처를 확인할 수
-있습니다.
+생성됩니다.
 
 ## 분량 처리
 
@@ -100,9 +142,8 @@ LLM보다 실측 기반 코드가 정확합니다.
 
 ## 완료 보고의 형태
 
-생성이 끝나면 두 가지가 만들어집니다(가공 예시). 하나는 담당자 화면에 붙는 보고
-블록이고, 다른 하나는 발화 LLM에 공급되는 분량 실측 사실 문장입니다 — 후자가 있어
-완료 발화가 실측과 다른 수치를 말하지 못합니다.
+생성이 끝나면 담당자 화면에 보고 블록이 제시됩니다. 교시별 페이지 수와 구성, 주요
+출처가 담기며, 다음과 같은 모양입니다(가공 예시).
 
 ```markdown
 **교육자료** (2교시 · 21페이지 · 교시별 HTML)
@@ -113,11 +154,8 @@ LLM보다 실측 기반 코드가 정확합니다.
 | 2교시 | 9p | 표지→내용6→요점→출처 | 밀폐공간 구조 훈련 자료 |
 ```
 
-```text
-분량 실측(총 21p): 1교시 12p(지정 12p 일치 · 주제 3개→본문 8p · 이미지 2장)
-/ 2교시 9p(지정 10p 근접(-1p) · 주제 2개→본문 6p).
-위 수치와 방향 표기는 실측이다 — 실측과 다른 방향이나 수치로 말하지 말 것.
-```
+완료 안내 발화는 위 분량 처리 절에서 설명한 실측 사실을 근거로 작성됩니다 — 실제
+생성된 결과의 수치가 안내의 기준입니다.
 
 ## 요약본
 
@@ -126,8 +164,10 @@ LLM보다 실측 기반 코드가 정확합니다.
 
 1. 완성된 교육자료의 전 교시 내용을 평문으로 직렬화해 입력으로 제공합니다.
 2. LLM이 목표 분량 기준으로 압축본을 작성합니다. 이미지 유닛은 포함하지 않습니다.
-3. 본문과 동일한 실측·페이지 분할·렌더 절차로 조판합니다.
-4. 실측 페이지가 목표를 초과하면 압축 재작성을 1회 시도하고, 그래도 초과하면 결과를
+3. 본문과 동일한 실측·페이지 분할·렌더 절차를 그대로 거칩니다.
+4. 실측 페이지가 목표를 초과하면 2번의 압축본 작성을 1회 다시 실행합니다. 입력은 첫
+   원고가 아니라 원래의 본문 전문이며, 초과 사실(실측 쪽수와 목표 쪽수)이 지시에
+   더해집니다. 새 원고는 3번의 절차를 다시 거칩니다. 그래도 초과하면 결과를
    그대로 채택합니다 — **코드가 유닛을 삭감하지 않습니다**. 목표와 실제의 차이는 완료
    보고에 사실로 포함됩니다.
 
@@ -135,6 +175,7 @@ LLM보다 실측 기반 코드가 정확합니다.
 
 | 구성 요소 | 코드 이름 | 모듈 경로 |
 |---|---|---|
+| 산출물 스키마 | `Deck` / `DeckSession` / `DeckPage` | `src/schemas/education_content.py` |
 | 생성 파이프라인 | `DeckComposer` | `src/tabs/edu_material/pipelines/generate_content/deck.py` |
 | 유닛 → 화면 조각 매핑 | `unit_block` | `src/tabs/edu_material/pipelines/generate_content/components/compose.py` |
 | 조각 카탈로그 | — | `src/tabs/edu_material/pipelines/generate_content/components/catalog.py` |

@@ -24,8 +24,9 @@ sidebar_position: 4
 ## 데이터 구조
 
 구성 계획은 코드에서 세 층의 타입으로 정의됩니다 — 생성 설정, 교시, 계획 본체. 아래는
-구조와 의미를 보여 주는 요약이며, 정확한 계약은 스키마 파일(`src/schemas/syllabus.py`)이
-기준입니다. 스키마의 필드 설명은 구조화 출력 시 LLM이 읽는 지시문으로도 사용됩니다.
+구조와 의미를 보여 주는 요약이며, 전체 필드 정의는 스키마
+파일(`src/schemas/syllabus.py`)에 있습니다. 스키마의 필드 설명은 구조화 출력 시 LLM이
+읽는 지시문으로도 사용됩니다.
 
 <pre class="type-block"><code>class <span class="tname tname-genset">GenerationSettings</span>(BaseModel):
     <span class="cmt">"""생성 설정 — 내용을 "어떤 형태와 방식으로 만들 것인가".
