@@ -28,7 +28,7 @@ sidebar_position: 5
 | 생성 설정 | `GenerationSettings` | `src/schemas/syllabus.py` |
 | 연간 교육계획 재료 (원본 불변) | `PlanContent` / `annual_source_plan` | `src/schemas/education_content.py` |
 | 근거 저장소·근거 항목 | `EvidenceStore` / `EvidenceItem` | `src/schemas/content_tab.py` |
-| 근거 재료 지문 | `EvidenceBasis` | `src/schemas/content_tab.py` |
+| 수집 당시 재료 기록 (재수집 판정 기준) | `EvidenceBasis` | `src/schemas/content_tab.py` |
 | 진행 시트 | `ContentSheet` | `src/schemas/content_tab.py` |
 | 시험 구성 | `ExamConfig` | `src/schemas/exam.py` |
 | 교육 작업공간 | `CourseWorkspace` | `src/schemas/state.py` |
@@ -46,7 +46,7 @@ sidebar_position: 5
 | 오케스트레이터 | `ContentTabOrchestrator` | `src/tabs/edu_material/graph.py` |
 | 작업 에이전트 | `ContentIntakeAgent` | `src/tabs/edu_material/handle_request/agent.py` |
 | 계획 작성기 / 수정기 | `SyllabusBuilder` / `SyllabusReviser` | `src/tabs/edu_material/syllabus/` |
-| 근거 수집 파이프라인 | `ContentEvidenceAgent` | `src/tabs/edu_material/pipelines/collect_evidence/` |
+| 문서 수집 파이프라인 | `ContentEvidenceAgent` | `src/tabs/edu_material/pipelines/collect_evidence/` |
 | 생성 파이프라인 | `DeckComposer` | `src/tabs/edu_material/pipelines/generate_content/` |
 | 시험 생성 파이프라인 | `ExamGenerationAgent` | `src/tabs/edu_material/pipelines/generate_exam/` |
 | 수정 파이프라인 | `ContentRevisionAgent` | `src/tabs/edu_material/pipelines/revise_content/` |

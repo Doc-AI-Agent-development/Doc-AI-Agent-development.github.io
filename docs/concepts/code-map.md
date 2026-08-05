@@ -15,7 +15,7 @@ backend_ai/
    ├─ schemas/                 데이터 구조 — 상태·구성 계획·산출물·근거
    ├─ agents/                  공통 기반과 탭 공용 에이전트 (base · suggester · eval_survey_summary)
    ├─ tools/                   LLM 클라이언트·도구 레지스트리·조회 도구 구성
-   ├─ skills/                  외부 자원 창구 — edu_ai(백엔드 API) · documents(검색) · storage(스토리지)
+   ├─ skills/                  외부 자원 접근 — edu_ai(백엔드 API) · documents(검색) · storage(스토리지)
    ├─ graphs/                  탭 그래프 등록
    └─ tabs/
       ├─ annual_plan/          연간 교육계획 탭

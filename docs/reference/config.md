@@ -32,7 +32,7 @@ sidebar_position: 4
 | `upload_image_dir` | 첨부 이미지 로컬 캐시 경로 |
 | `agent_state_db` | 체크포인트 DB 파일 경로 |
 | `tool_mode` | 도구 모드 — 실제 자원 사용 / 모의 도구 |
-| `data_backend` | 교육 데이터 조회 모드 — API 사용 / 빈 대역 |
+| `data_backend` | 교육 데이터 조회 모드 — API 사용 / 빈 결과를 반환하는 모의 모드 |
 | `azure_openai_*` | LLM 자격·배포 구성 |
 | `token_usage_log` | 토큰 사용 기록 파일 경로 |
 | `dept_risk_profiles_path` | 부서 위험 특성 표(운영 편집 파일) 경로 — 연간 계획 생성의 부서 맞춤 재료 |
@@ -48,5 +48,5 @@ sidebar_position: 4
 | `bff_base_url` | 읽는 코드 없음 |
 | `vision_images_per_doc_max` | 읽는 코드 없음 |
 | `doc_queries_per_module_max` | 읽는 코드 없음 |
-| `component_asset_base` | 본선 미사용 — 시뮬레이션 전용 렌더 모듈만 참조 |
+| `component_asset_base` | 실서비스 경로 미사용 — 시뮬레이션 전용 렌더 모듈만 참조 |
 | 직접 DB 접속 계열 키 | 주석으로 보존된 과거 구현 전용 — 현행 경로 미사용 |

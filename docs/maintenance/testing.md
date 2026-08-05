@@ -2,10 +2,10 @@
 sidebar_position: 5
 ---
 
-# 테스트 지형
+# 테스트 구성
 
-테스트는 **LLM 없이 도는 유닛테스트**와, **실제 LLM으로 대화 전체를 태우는 시나리오 러너**의
-두 층입니다. 유닛테스트는 결정적 동작을 고정하고, 시나리오 러너는 요구가 실제 대화에서
+테스트는 **LLM 없이 실행되는 유닛테스트**와, **실제 LLM으로 대화 전체를 실행하는 시나리오
+러너**의 두 층입니다. 유닛테스트는 결정적 동작을 고정하고, 시나리오 러너는 요구가 실제 대화에서
 반영되는지를 확인합니다.
 
 ## 유닛테스트 (`tests/unit`)
@@ -19,8 +19,8 @@ sidebar_position: 5
 | `test_syllabus_settings.py` | 카드 답변의 단방향 이동 |
 | `test_syllabus_entry.py` / `test_syllabus_wiring.py` | 계획 재료 조립과 계획 생성 경로의 단일화 |
 | `test_evidence_selection.py` | 검색 질의·후보 처리·본문 중복 제거 |
-| `test_evidence_supply.py` | 근거 전문 확보 폴백 사슬과 예산 조정 |
-| `test_evidence_basis.py` | 재료 지문 대조(재수집 게이트) |
+| `test_evidence_supply.py` | 근거 전문 확보의 폴백 순서와 예산 조정 |
+| `test_evidence_basis.py` | 수집 당시 재료 대조(재수집 게이트) |
 | `test_deck_packing.py` | 실측 기반 페이지 분할의 경계 규칙(주제 경계·분할·그림 고립 방지) |
 | `test_deck_supply.py` | 생성 LLM이 받는 입력의 원천(근거 전문·배정 문서) |
 | `test_session_refine.py` | 교시 단위 정리 단계의 입력·실패 폴백·보존 규칙 |
@@ -35,10 +35,10 @@ sidebar_position: 5
 | `test_tool_loop.py` | 도구 루프의 중복 차단과 거부 접두 재시도 경계 |
 | `test_turns.py` | 세션당 턴 하나의 동시성 불변식 |
 
-테스트 기본 환경은 **모의 도구와 빈 데이터 대역**으로 설정되어 있어 외부 자원 없이
+테스트 기본 환경은 **모의 도구와 빈 데이터 조회**로 설정되어 있어 외부 자원 없이
 실행됩니다.
 
-유닛테스트 폴더 밖에도 테스트 무리가 있습니다 — API 계약(`tests/api`), 그래프
+유닛테스트 폴더 밖에도 테스트가 있습니다 — API 계약(`tests/api`), 그래프
 구성(`tests/graphs`), 렌더 조각 회귀(Chrome 실측 필요), 스토리지·첨부 이미지 처리
 테스트가 `tests/` 하위에 나뉘어 있습니다.
 

@@ -20,7 +20,7 @@ class AppState(BaseModel):
     content_sheet: ContentSheet | None    # 진행 시트 — 선택 교육·처리한 첨부·질문 카드 답·제외 지정
     syllabus: Syllabus | None             # 구성 계획 (교육자료 구성 계획 수립 문서 참조)
     plan_content: PlanContent | None      # 연간 교육계획에서 조립한 구성 계획 재료 — 원본 서술 포함, 불변
-    evidence_store: EvidenceStore | None  # 수집된 근거 원문 발췌와 수집 당시 재료의 지문
+    evidence_store: EvidenceStore | None  # 수집된 근거 원문 발췌와 수집 당시 재료 기록
     exam_config: ExamConfig | None        # 시험 구성 — None이면 이 회차는 시험을 만들지 않음
     deck: Deck | None                     # 교육자료
     digest: CondensedDeck | None          # 요약본 — 완성된 교육자료 본문이 원천
