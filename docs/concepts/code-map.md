@@ -43,7 +43,7 @@ backend_ai/
 | 코드 영역 | 다루는 문서 |
 |---|---|
 | `src/api/` | [API 계약](../reference/api.md), [상태와 세션](./state.md), [요청 처리 흐름](./request-lifecycle.md) |
-| `src/schemas/` | [구성 계획](../edu-material/syllabus.md), [상태와 세션](./state.md), [이름 사전](../reference/names.md) |
+| `src/schemas/` | [구성 계획](../edu-material/syllabus.md), [상태와 세션](./state.md), [용어 대응표](../reference/names.md) |
 | `src/agents/` | [LLM 호출 지도](../reference/llm-calls.md), [개요](../overview.md)의 공유 기반 |
 | `src/skills/` | [외부 의존](../reference/external-services.md) |
 | `src/tabs/annual_plan/graph.py` | [요청 처리 흐름](./request-lifecycle.md), [시작과 진입](../annual-plan/entry.md) |
@@ -61,6 +61,4 @@ backend_ai/
 | `src/tabs/edu_material/pipelines/revise_content/` | [수정과 확정](../edu-material/revision.md) |
 
 에이전트 공통 기반 디렉터리 아래에는 **과거 구조의 흔적**(내용 없는 디렉터리)이 남아 있을 수
-있습니다.
-**살아 있는 코드와 폐기 예정 코드의 구분**은 [과도기 흔적](../maintenance/legacy.md)을
-참고하십시오.
+있습니다. 현재 사용되는 것은 공통 기반과 추천 문구, 설문·평가 에이전트뿐입니다.
