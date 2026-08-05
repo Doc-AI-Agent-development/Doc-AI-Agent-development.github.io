@@ -25,7 +25,7 @@ sidebar_position: 5
 
 ```mermaid
 flowchart LR
-  A["검색 질의 생성<br/>(LLM)"] --> B["검색<br/>(BM25)"]
+  A["검색 질의 생성<br/>(LLM)"] --> B["검색<br/>(OpenSearch · BM25)"]
   B --> C["중복 제거<br/>(본문 대조)"]
   C --> D["근거 선별<br/>(LLM · 교시당 상한)"]
   D --> E["발췌 추출<br/>(원문 그대로)"]
