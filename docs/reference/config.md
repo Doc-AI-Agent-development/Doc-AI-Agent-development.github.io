@@ -47,7 +47,7 @@ sidebar_position: 4
 
 | 키 | 조절하는 것 |
 |---|---|
-| `dept_risk_profiles_path` | 부서 위험 특성 표(운영 편집 파일) 경로 — 연간 계획 생성의 부서 맞춤 재료 |
+| `dept_risk_profiles_path` | 부서 위험 특성 표(운영 편집 파일) 경로. 연간 계획 생성의 부서 맞춤 재료 |
 
 ## 실행 모드와 저장·기록
 
