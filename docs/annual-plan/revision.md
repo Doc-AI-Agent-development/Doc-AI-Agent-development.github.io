@@ -54,7 +54,7 @@ sidebar_position: 9
 
 | 구성 요소 | 코드 이름 | 모듈 경로 |
 |---|---|---|
-| 생성 후 수정 분기·부분 생성 | `AnnualPlanAgent` | `src/tabs/annual_plan/pipelines/generate_plan/agent.py` |
+| 생성 후 수정 분기·부분 생성 | `PlanWriterAgent` | `src/tabs/annual_plan/plan_writer/agent.py` |
 | 내용 수정 요구 모델 | `ContentRevision` | `src/tabs/annual_plan/editor/schemas.py` |
-| 조회 응대 | `ConversationAgent` | `src/tabs/annual_plan/conversation/agent.py` |
-| 생성 본문 조회 도구 | `lookup_generated_content` | `src/tabs/annual_plan/conversation/agent.py` |
+| 조회 응대 | `InquiryAgent` | `src/tabs/annual_plan/inquiry/agent.py` |
+| 생성 본문 조회 도구 | `lookup_generated_content` | `src/tabs/annual_plan/inquiry/agent.py` |

@@ -88,8 +88,8 @@ LLM이 수행하고, 시스템이 결과를 검증합니다. 지정된 월을 �
 
 | 구성 요소 | 코드 이름 | 모듈 경로 |
 |---|---|---|
-| 조립·계획표 제시·승인 게이트 | `PlannerAgent` | `src/tabs/annual_plan/planner/agent.py` |
-| 계획표 렌더 | `plan_table` | `src/tabs/annual_plan/planner/agent.py` |
-| 상태 파생 경고 | `plan_warning_block` | `src/tabs/annual_plan/planner/agent.py` |
-| 실시월 배정 규칙 | `MONTH_RULES` | `src/tabs/annual_plan/planner/schedule_rules.py` |
+| 조립·계획표 제시·승인 게이트 | `PlanTableAgent` | `src/tabs/annual_plan/plan_table/agent.py` |
+| 계획표 렌더 | `plan_table` | `src/tabs/annual_plan/plan_table/agent.py` |
+| 상태 파생 경고 | `plan_warning_block` | `src/tabs/annual_plan/plan_table/agent.py` |
+| 실시월 배정 규칙 | `MONTH_RULES` | `src/tabs/annual_plan/plan_table/schedule_rules.py` |
 | 회차 주제 배분 | `SessionSplit` | `src/schemas/checklist.py` |

@@ -87,6 +87,6 @@ sidebar_position: 3
 | 구성 요소 | 코드 이름 | 모듈 경로 |
 |---|---|---|
 | 목록 항목·조립 | `EduListEntry` | `src/schemas/questions.py` |
-| 목록 단계 진행·렌더 | `AnnualIntakeAgent` | `src/tabs/annual_plan/intake/agent.py` |
-| 법정 제외 경고 | `statutory_exclusion_warning` | `src/tabs/annual_plan/planner/agent.py` |
+| 목록 단계 진행·렌더 | `IntakeAgent` | `src/tabs/annual_plan/intake/agent.py` |
+| 법정 제외 경고 | `statutory_exclusion_warning` | `src/tabs/annual_plan/plan_table/agent.py` |
 | 화면 범위 판단 재료 | `PlanEditorAgent` | `src/tabs/annual_plan/editor/agent.py` |

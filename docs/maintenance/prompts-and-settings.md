@@ -66,10 +66,10 @@ sidebar_position: 3
 
 | 구성 요소 | 코드 이름 | 모듈 경로 |
 |---|---|---|
-| 실시월 배정 규칙 문구·규칙 코드 | `MONTH_RULES` / `assign_months` | `src/tabs/annual_plan/planner/schedule_rules.py` |
+| 실시월 배정 규칙 문구·규칙 코드 | `MONTH_RULES` / `assign_months` | `src/tabs/annual_plan/plan_table/schedule_rules.py` |
 | 일괄 생성 운영 답안 | `build_auto_sheet` | `src/tabs/annual_plan/intake/auto.py` |
 | 설문 질문 정의 | `_template_questions` | `src/tabs/annual_plan/intake/agent.py` |
-| 저장 안내 문장 | `SAVE_FACT` | `src/tabs/annual_plan/planner/agent.py` |
+| 저장 안내 문장 | `SAVE_FACT` | `src/tabs/annual_plan/plan_table/agent.py` |
 | 결정 문서의 필드 설명 | `EditableDoc` 계열 | `src/tabs/annual_plan/editor/schemas.py` |
-| 생성 동시 실행 상한·호출 제한 | `_MAX_CONCURRENT` / `_COURSE_TIMEOUT` | `src/tabs/annual_plan/pipelines/generate_plan/agent.py` |
+| 생성 동시 실행 상한·호출 제한 | `_MAX_CONCURRENT` / `_COURSE_TIMEOUT` | `src/tabs/annual_plan/plan_writer/agent.py` |
 | 부서 위험 특성 표 로더 | `dept_risk_profiles` | `src/skills/_common.py` |

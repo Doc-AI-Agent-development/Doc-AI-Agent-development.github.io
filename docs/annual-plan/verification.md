@@ -57,6 +57,6 @@ LLM 검토는 계획표, 법정 기준, 이번 턴에 바뀐 값, 그리고 대�
 
 | 구성 요소 | 코드 이름 | 모듈 경로 |
 |---|---|---|
-| LLM 검토 | `PlanCheckerAgent` | `src/tabs/annual_plan/pipelines/verify/agent.py` |
-| 상태 파생 경고 | `plan_warning_block` | `src/tabs/annual_plan/planner/agent.py` |
+| LLM 검토 | `PlanCheckerAgent` | `src/tabs/annual_plan/checker/agent.py` |
+| 상태 파생 경고 | `plan_warning_block` | `src/tabs/annual_plan/plan_table/agent.py` |
 | 검사 결과 데이터 | `Verification` | `src/schemas/verification.py` |

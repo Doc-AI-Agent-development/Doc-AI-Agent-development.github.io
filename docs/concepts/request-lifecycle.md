@@ -71,7 +71,8 @@ flowchart TD
 연간 교육계획 탭은 분류를 통과한 발화를 단계 그래프가 처리합니다. 작업의 순서(목록 확정, 설문, 계획표 확인, 생성, 검사, 수정)가 그래프에 고정되어 있고, 이번 턴이 어느
 단계에서 시작할지는 보존된 상태(설문 시트의 진행 단계, 계획 기준선의 승인 여부, 계획의
 존재)로 판별됩니다. 발화 해석이 단계를 정하지 않으므로 같은 상태에서는 항상 같은 단계가
-응답합니다.
+응답합니다. 단계별 전담 에이전트는 [연간 교육계획 소개](../annual-plan/intro.md)의 처리
+담당 절에 정리되어 있습니다.
 
 이 탭에서는 업무 범위 내 발화가 다시 둘로 갈립니다. 계획을 만들거나 고치려는 발화는
 단계 그래프로, **정보를 묻는 발화는 조회 응대로** 갑니다. 조회 응대가 답한 뒤에는 진행
@@ -130,7 +131,7 @@ flowchart TD
 | 구성 요소 | 코드 이름 | 모듈 경로 |
 |---|---|---|
 | 탭 그래프와 오케스트레이터 (교육자료) | `ContentTabOrchestrator` | `src/tabs/edu_material/graph.py` |
-| 탭 그래프와 오케스트레이터 (연간) | `AnnualTabOrchestrator` | `src/tabs/annual_plan/graph.py` |
+| 탭 그래프와 오케스트레이터 (연간) | `AnnualRouterAgent` | `src/tabs/annual_plan/router/agent.py` |
 | 곁가지 뒤 화면 재제시 | `resume_gate` | `src/tabs/annual_plan/graph.py` |
 | 작업 에이전트 | `ContentIntakeAgent` | `src/tabs/edu_material/handle_request/agent.py` |
 | 도구 호출 루프 | `run_tool_loop` | `src/agents/base.py` |

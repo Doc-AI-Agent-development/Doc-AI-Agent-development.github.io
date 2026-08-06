@@ -74,7 +74,7 @@ flowchart TD
 
 | 구성 요소 | 코드 이름 | 모듈 경로 |
 |---|---|---|
-| 진입 판정과 시작 분기 | `AnnualIntakeAgent` | `src/tabs/annual_plan/intake/agent.py` |
-| 저장된 계획 복원 | `restore_saved_plan` | `src/tabs/annual_plan/planner/restore.py` |
+| 진입 판정과 시작 분기 | `IntakeAgent` | `src/tabs/annual_plan/intake/agent.py` |
+| 저장된 계획 복원 | `restore_saved_plan` | `src/tabs/annual_plan/plan_table/restore.py` |
 | 일괄 생성 기본값 | `build_auto_sheet` | `src/tabs/annual_plan/intake/auto.py` |
-| 요청 분류·재시작 신호 | `AnnualTabOrchestrator` | `src/tabs/annual_plan/graph.py` |
+| 요청 분류·재시작 신호 | `AnnualRouterAgent` | `src/tabs/annual_plan/router/agent.py` |
