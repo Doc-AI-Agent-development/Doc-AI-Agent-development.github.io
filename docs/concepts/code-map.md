@@ -43,7 +43,7 @@ backend_ai/
 | 코드 영역 | 다루는 문서 |
 |---|---|
 | `src/api/` | [API 계약](../reference/api.md), [상태와 세션](./state.md), [요청 처리 흐름](./request-lifecycle.md) |
-| `src/schemas/` | [구성 계획](../edu-material/syllabus.md), [상태와 세션](./state.md), [용어 대응표](../reference/names.md) |
+| `src/schemas/` | [구성 계획](../edu-material/syllabus.md), [상태와 세션](./state.md), [용어 사전](../reference/names.md) |
 | `src/agents/` | [LLM 호출 지도](../reference/llm-calls.md), [개요](../overview.md)의 공유 기반 |
 | `src/skills/` | [외부 의존](../reference/external-services.md) |
 | `src/tabs/annual_plan/graph.py` | [요청 처리 흐름](./request-lifecycle.md), [시작과 진입](../annual-plan/entry.md) |
