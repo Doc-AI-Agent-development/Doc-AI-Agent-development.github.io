@@ -28,6 +28,6 @@ sidebar_position: 7
 
 | 구성 요소 | 코드 이름 | 모듈 경로 |
 |---|---|---|
-| 회차별 생성·완료 보고 | `AnnualPlanAgent` | `src/tabs/annual_plan/pipelines/generate_plan/agent.py` |
+| 회차별 생성·완료 보고 | `PlanWriterAgent` | `src/tabs/annual_plan/plan_writer/agent.py` |
 | 모듈 구조 | `CourseCurriculum` | `src/schemas/checklist.py` |
-| 형식 조립 | `assemble_curriculum` | `src/tabs/annual_plan/pipelines/generate_plan/agent.py` |
+| 형식 조립 | `assemble_curriculum` | `src/tabs/annual_plan/plan_writer/agent.py` |

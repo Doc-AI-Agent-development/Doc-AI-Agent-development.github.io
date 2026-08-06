@@ -86,5 +86,5 @@ Q3. 시간 분할 — 한 번에 vs 나눠서(정기교육)
 |---|---|---|
 | 질문·보기 모델 | `SheetQuestion` / `QuestionOption` | `src/schemas/questions.py` |
 | 설문 상태 | `QuestionSheet` | `src/schemas/questions.py` |
-| 질문 제시·답 처리·카드 렌더 | `AnnualIntakeAgent` | `src/tabs/annual_plan/intake/agent.py` |
+| 질문 제시·답 처리·카드 렌더 | `IntakeAgent` | `src/tabs/annual_plan/intake/agent.py` |
 | 법령 시간 추출 | `HoursExtraction` | `src/schemas/questions.py` |

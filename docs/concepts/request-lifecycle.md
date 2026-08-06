@@ -130,7 +130,7 @@ flowchart TD
 | 구성 요소 | 코드 이름 | 모듈 경로 |
 |---|---|---|
 | 탭 그래프와 오케스트레이터 (교육자료) | `ContentTabOrchestrator` | `src/tabs/edu_material/graph.py` |
-| 탭 그래프와 오케스트레이터 (연간) | `AnnualTabOrchestrator` | `src/tabs/annual_plan/graph.py` |
+| 탭 그래프와 오케스트레이터 (연간) | `AnnualRouterAgent` | `src/tabs/annual_plan/router/agent.py` |
 | 곁가지 뒤 화면 재제시 | `resume_gate` | `src/tabs/annual_plan/graph.py` |
 | 작업 에이전트 | `ContentIntakeAgent` | `src/tabs/edu_material/handle_request/agent.py` |
 | 도구 호출 루프 | `run_tool_loop` | `src/agents/base.py` |
