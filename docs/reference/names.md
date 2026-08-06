@@ -61,11 +61,11 @@ sidebar_position: 5
 |---|---|---|---|
 | 연간 탭 오케스트레이터 | `AnnualRouterAgent` | `src/tabs/annual_plan/router/agent.py` | [요청 처리 흐름](../concepts/request-lifecycle.md) |
 | 질문 에이전트 | `IntakeAgent` | `src/tabs/annual_plan/intake/` | [설문과 질문 카드](../annual-plan/questions.md) |
-| 계획표 구성 에이전트 | `PlanTableAgent` | `src/tabs/annual_plan/plan_table/` | [연간 계획표 확인](../annual-plan/plan-table.md) |
-| 계획 편집 에이전트 | `PlanEditorAgent` | `src/tabs/annual_plan/editor/` | [대화 반영 방식](../annual-plan/edits.md) |
-| 생성·수정 에이전트 | `PlanWriterAgent` | `src/tabs/annual_plan/plan_writer/` | [계획 생성](../annual-plan/generation.md) |
+| 구상 에이전트 | `PlanTableAgent` | `src/tabs/annual_plan/plan_table/` | [연간 계획표 확인](../annual-plan/plan-table.md) |
+| 편집 에이전트 | `PlanEditorAgent` | `src/tabs/annual_plan/editor/` | [대화 반영 방식](../annual-plan/edits.md) |
+| 계획 작성 에이전트 | `PlanWriterAgent` | `src/tabs/annual_plan/plan_writer/` | [계획 생성](../annual-plan/generation.md) |
 | 요건 검사 에이전트 | `PlanCheckerAgent` | `src/tabs/annual_plan/checker/` | [요건 검사](../annual-plan/verification.md) |
-| 계획 조회 에이전트 | `InquiryAgent` | `src/tabs/annual_plan/inquiry/` | [계획 수정과 조회](../annual-plan/revision.md) |
+| 조회 에이전트 | `InquiryAgent` | `src/tabs/annual_plan/inquiry/` | [계획 수정과 조회](../annual-plan/revision.md) |
 
 ### 교육자료 생성 탭
 
