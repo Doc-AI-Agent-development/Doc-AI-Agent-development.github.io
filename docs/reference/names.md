@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# 용어 대응표
+# 용어 사전
 
 문서의 한국어 용어와 코드 이름의 대응표입니다. 본문 페이지 끝의 코드 참조 표는 이 표의
 **부분집합**이며, 관련 문서 열은 그 용어를 본문으로 다루는 페이지입니다.
@@ -27,6 +27,14 @@ sidebar_position: 5
 |---|---|---|---|
 | 세션 상태 | `AppState` | `src/schemas/state.py` | [상태와 세션](../concepts/state.md) |
 
+### 연간 교육계획 탭
+
+| 한국어 용어 | 코드 이름 | 정의 위치 | 관련 문서 |
+|---|---|---|---|
+| 설문 시트 | `QuestionSheet` | `src/schemas/questions.py` | [설문과 질문 카드](../annual-plan/questions.md) |
+| 결정 문서 | `EditableDoc` | `src/tabs/annual_plan/editor/schemas.py` | [대화 반영 방식](../annual-plan/edits.md) |
+| 회차 계획 | `SessionPlan` | `src/schemas/checklist.py` | [연간 계획표 확인](../annual-plan/plan-table.md) |
+
 ### 교육자료 생성 탭
 
 | 한국어 용어 | 코드 이름 | 정의 위치 | 관련 문서 |
@@ -45,15 +53,19 @@ sidebar_position: 5
 | 시험 문항 | `Question` | `src/schemas/exam.py` | [시험과 강의평가](../edu-material/exam.md) |
 | 범위 판독 | `RevisionScope` / `SessionRevisionScope` | `src/schemas/content_tab.py` | [수정과 확정](../edu-material/revision.md) |
 
+## 처리 주체
+
 ### 연간 교육계획 탭
 
-| 한국어 용어 | 코드 이름 | 정의 위치 | 관련 문서 |
+| 한국어 용어 | 코드 이름 | 위치 | 관련 문서 |
 |---|---|---|---|
-| 설문 시트 | `QuestionSheet` | `src/schemas/questions.py` | [설문과 질문 카드](../annual-plan/questions.md) |
-| 결정 문서 | `EditableDoc` | `src/tabs/annual_plan/editor/schemas.py` | [대화 반영 방식](../annual-plan/edits.md) |
-| 회차 계획 | `SessionPlan` | `src/schemas/checklist.py` | [연간 계획표 확인](../annual-plan/plan-table.md) |
-
-## 처리 주체
+| 연간 탭 오케스트레이터 | `AnnualTabOrchestrator` | `src/tabs/annual_plan/graph.py` | [요청 처리 흐름](../concepts/request-lifecycle.md) |
+| 질문 에이전트 | `AnnualIntakeAgent` | `src/tabs/annual_plan/intake/` | [설문과 질문 카드](../annual-plan/questions.md) |
+| 계획표 구성 에이전트 | `PlannerAgent` | `src/tabs/annual_plan/planner/` | [연간 계획표 확인](../annual-plan/plan-table.md) |
+| 계획 편집 에이전트 | `PlanEditorAgent` | `src/tabs/annual_plan/editor/` | [대화 반영 방식](../annual-plan/edits.md) |
+| 생성·수정 에이전트 | `AnnualPlanAgent` | `src/tabs/annual_plan/pipelines/generate_plan/` | [계획 생성](../annual-plan/generation.md) |
+| 요건 검사 에이전트 | `PlanCheckerAgent` | `src/tabs/annual_plan/pipelines/verify/` | [요건 검사](../annual-plan/verification.md) |
+| 계획 조회 에이전트 | `ConversationAgent` | `src/tabs/annual_plan/conversation/` | [계획 수정과 조회](../annual-plan/revision.md) |
 
 ### 교육자료 생성 탭
 
@@ -61,23 +73,11 @@ sidebar_position: 5
 |---|---|---|---|
 | 오케스트레이터 | `ContentTabOrchestrator` | `src/tabs/edu_material/graph.py` | [요청 처리 흐름](../concepts/request-lifecycle.md) |
 | 작업 에이전트 | `ContentIntakeAgent` | `src/tabs/edu_material/handle_request/agent.py` | [요청 처리 흐름](../concepts/request-lifecycle.md) |
-| 계획 작성기 / 수정기 | `SyllabusBuilder` / `SyllabusReviser` | `src/tabs/edu_material/syllabus/` | [교육자료 구성 계획 수립](../edu-material/syllabus.md) |
+| 계획 작성·수정 에이전트 | `SyllabusBuilder` / `SyllabusReviser` | `src/tabs/edu_material/syllabus/` | [교육자료 구성 계획 수립](../edu-material/syllabus.md) |
 | 문서 수집 파이프라인 | `ContentEvidenceAgent` | `src/tabs/edu_material/pipelines/collect_evidence/` | [문서 수집](../edu-material/evidence.md) |
 | 생성 파이프라인 | `DeckComposer` | `src/tabs/edu_material/pipelines/generate_content/` | [교육자료 생성](../edu-material/generation.md) |
 | 시험 생성 파이프라인 | `ExamGenerationAgent` | `src/tabs/edu_material/pipelines/generate_exam/` | [시험과 강의평가](../edu-material/exam.md) |
 | 수정 파이프라인 | `ContentRevisionAgent` | `src/tabs/edu_material/pipelines/revise_content/` | [수정과 확정](../edu-material/revision.md) |
-
-### 연간 교육계획 탭
-
-| 한국어 용어 | 코드 이름 | 위치 | 관련 문서 |
-|---|---|---|---|
-| 연간 탭 오케스트레이터 | `AnnualTabOrchestrator` | `src/tabs/annual_plan/graph.py` | [요청 처리 흐름](../concepts/request-lifecycle.md) |
-| 설문 에이전트 | `AnnualIntakeAgent` | `src/tabs/annual_plan/intake/` | [설문과 질문 카드](../annual-plan/questions.md) |
-| 계획표 조립기 | `PlannerAgent` | `src/tabs/annual_plan/planner/` | [연간 계획표 확인](../annual-plan/plan-table.md) |
-| 대화 반영 편집기 | `PlanEditorAgent` | `src/tabs/annual_plan/editor/` | [대화 반영 방식](../annual-plan/edits.md) |
-| 생성·수정 에이전트 | `AnnualPlanAgent` | `src/tabs/annual_plan/pipelines/generate_plan/` | [계획 생성](../annual-plan/generation.md) |
-| 요건 검사기 | `PlanCheckerAgent` | `src/tabs/annual_plan/pipelines/verify/` | [요건 검사](../annual-plan/verification.md) |
-| 조회 응대 에이전트 | `ConversationAgent` | `src/tabs/annual_plan/conversation/` | [계획 수정과 조회](../annual-plan/revision.md) |
 
 ### 공용
 

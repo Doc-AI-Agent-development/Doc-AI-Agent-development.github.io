@@ -10,7 +10,7 @@ sidebar_position: 1
 
 - Python 가상환경을 만들고 저장소의 의존성을 설치합니다.
 - 접속 정보(백엔드 API, 검색 엔진, 스토리지, LLM 자격)는 환경 변수 또는 `.env` 파일로
-  설정합니다. 키 목록은 [설정 항목](../reference/config.md)을 참고하십시오.
+  설정합니다. 키 목록은 [환경 변수](../reference/config.md)를 참고하십시오.
 - **Chrome 설치가 필요**합니다 — 교육자료 생성이 페이지를 나눌 때 유닛을 실제 HTML로
   렌더해 Chrome으로 높이를 실측하기 때문입니다([교육자료
   생성](../edu-material/generation.md)의 파이프라인 참조). 미설치 상태에서도 실행은 되지만
