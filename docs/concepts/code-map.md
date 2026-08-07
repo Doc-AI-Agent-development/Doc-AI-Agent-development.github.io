@@ -18,15 +18,15 @@ sidebar_position: 3
    ├─ skills/                  외부 자원 접근 — edu_ai(백엔드 API) · documents(검색) · storage(스토리지)
    ├─ graphs/                  탭 그래프 등록
    └─ tabs/
-      ├─ annual_plan/          연간 교육계획 탭
-      │  ├─ graph.py           탭 그래프와 오케스트레이터(분류·단계 배선·곁가지 재제시)
+      ├─ annual_plan/          연간 교육계획 탭 (폴더 하나가 에이전트 하나)
+      │  ├─ graph.py           단계 배선·곁가지 재제시
+      │  ├─ router/            요청 분류와 범위 밖 거절
       │  ├─ intake/            진입 판정·교육 목록·설문 (일괄 생성 기본값 포함)
-      │  ├─ planner/           계획표 조립·실시월 규칙·저장 계획 복원
+      │  ├─ plan_table/        계획표 조립·확인 단계·실시월 규칙·저장 계획 복원
+      │  ├─ plan_writer/       회차별 상세 내용 생성·생성 후 수정
+      │  ├─ checker/           요건 검사
       │  ├─ editor/            대화 반영(결정 문서 왕복·전후 비교)
-      │  ├─ conversation/      조회 응대
-      │  └─ pipelines/
-      │     ├─ generate_plan/  회차별 상세 내용 생성·생성 후 수정
-      │     └─ verify/         요건 검사
+      │  └─ inquiry/           조회 응대
       └─ edu_material/         교육자료 생성 탭
          ├─ graph.py           탭 그래프와 오케스트레이터
          ├─ handle_request/    대화 처리 — 작업 에이전트·도구·생성/수정 실행·확정
