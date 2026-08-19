@@ -42,6 +42,30 @@ sidebar_position: 7
 구성(`tests/graphs`), 렌더 조각 회귀(Chrome 실측 필요), 스토리지·첨부 이미지 처리
 테스트가 `tests/` 하위에 나뉘어 있습니다.
 
+## 연간 교육계획 탭
+
+연간 교육계획 탭의 검증은 세 층입니다. 단위 테스트는 결정론 부품을 고정하고, 단계 스모크는
+편집 LLM이 관여하는 단계 하나를 실제 LLM으로 돌리며, 배터리는 시작부터 요건 검사까지
+한 대화를 관통합니다. 스모크와 배터리는 실제 LLM을 호출하므로 비용과 시간이 들고 pytest에
+수집되지 않습니다 — 사용법은 `tests/scenarios/README.md`에 있습니다.
+
+| 층 | 파일 | 고정·확인하는 것 |
+|---|---|---|
+| 단위 테스트 | `tests/unit/test_agents.py` | 설문 질문·보기·기본값, 목록 조립, 일괄 생성 답안, 계획표 조립 규칙, 경고 판정, 병합 규칙, 렌더 형식 같은 결정론 동작 |
+| 단위 테스트 | `tests/api/test_invoke.py` · `tests/unit/test_tool_loop.py` · `tests/unit/test_turns.py` | 환영 턴과 봉투 형식, 도구 루프의 중복 차단·재시도 경계, 세션당 턴 하나 |
+| 단계 스모크 | `tests/scenarios/step3_intake_smoke.py` | 목록·설문 단계의 발화 반영 — 화면 범위 총칭, 되물음, 다른 단계 답 기록 |
+| 단계 스모크 | `tests/scenarios/step4_assembly_smoke.py` | 계획표 조립과 실시월 배정의 두 경로(규칙 코드·LLM) |
+| 단계 스모크 | `tests/scenarios/step5_review_smoke.py` | 계획표 확인 게이트의 수정 반영·승인 보류 |
+| 단계 스모크 | `tests/scenarios/step6_edit_smoke.py` | 생성 후 수정 — 값·구성(부분 생성)·내용 재작성 |
+| 단계 스모크 | `tests/scenarios/step7_checker_smoke.py` | 요건 검사의 재지적 금지와 경고 잔류 |
+| 배터리 | `tests/scenarios/annual_blind_battery.py` | 실사용자를 흉내 낸 대화 여러 판으로 시작→목록→설문→계획표→생성→검사 관통 |
+| 데이터 조회 | `tests/smoke_db.py` | 백엔드 조회 API 전종을 실제로 호출해 연결을 확인 |
+
+스모크와 배터리의 데이터는 실서버 부서 하나를 본뜬 모의 데이터이고 LLM만 실물입니다.
+판정은 완주·예외를 기계로 보고, 반영 품질은 로그 전문을 읽어 사람이 합니다.
+[유지보수의 연간 교육계획 탭](./maintenance/annual-plan/index.md) 항목들의 "확인" 열이
+이 표의 층을 가리킵니다.
+
 ## 대화 시나리오 러너
 
 `tests/run_content_scenario.py`는 배포 형상 그대로 — 실서버·실 LLM·실 데이터로 — 교육
