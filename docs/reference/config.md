@@ -56,7 +56,6 @@ sidebar_position: 5
 | 키 | 역할 |
 |---|---|
 | `dept_risk_profiles_path` | 부서 위험 특성 표(사람이 편집하는 마크다운 파일) 경로. 연간 계획의 교육 내용에 부서 맞춤을 반영하는 재료로, 원천 DB 테이블이 없어 이 파일이 정본 |
-| `annual_auto_hours` / `annual_auto_sessions` | 일괄 생성이 쓰는 과정별 연간 교육시간과 회차 수 |
 | `annual_month_assign_cap` | 실시월을 연중 분산으로 배정할 때 한 달에 배정하는 교육 수 상한 |
 
 ### 기능별 LLM 호출 조절
