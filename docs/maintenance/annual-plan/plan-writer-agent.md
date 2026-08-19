@@ -61,7 +61,7 @@ sidebar_position: 6
 만들어진 교육 내용을 고쳐 달라는 요청의 처리입니다.
 
 - 자리: `src/tabs/annual_plan/plan_writer/prompts/describe/`의 수정 모드 절 · `src/tabs/annual_plan/plan_writer/agent.py`의 재작성 함수
-- 함께 볼 곳: 편집 에이전트가 넘기는 내용 수정 요구 모델
+- 함께 볼 곳: 편집 에이전트가 넘기는 내용 수정 요구의 형식
 - 테스트: 생성 후 단계 스모크
 
 **저장 안내 문구** (코드 상수)
