@@ -16,16 +16,16 @@ sidebar_position: 5
 - 함께 볼 곳: 법정 최소 회차 경고가 같은 값을 기준으로 함
 - 테스트: 단위 테스트
 
-**시간축 설문 답이 값이 되는 방식** (코드)
+**시간 설정 답이 값이 되는 방식** (코드)
 
 정기교육 대상 판정, 사무직·무재해 감면이 기준 시간을 바꾸는 방식, 시간 분할 답의
 회차 수가 여기 있습니다.
 
-- 자리: `src/tabs/annual_plan/plan_table/agent.py`의 시간축 답 적용
+- 자리: `src/tabs/annual_plan/plan_table/agent.py`의 시간 설정 답 적용
 - 함께 볼 곳: 설문 보기([질문 에이전트](./question-agent.md))
 - 테스트: 단위 테스트
 
-**연간 시간을 회차에 나누는 방식(균등·반올림 잔차)** (코드)
+**연간 시간을 회차에 나누는 방식(균등 분할과 남는 시간 처리)** (코드)
 
 - 자리: `src/tabs/annual_plan/plan_table/agent.py`의 회차 마무리
 - 함께 볼 곳: 병합 규칙의 시간 정합([편집 에이전트](./editor-agent.md))
@@ -45,19 +45,19 @@ sidebar_position: 5
 **자유 발화 요구가 있을 때의 실시월 배정(LLM)** (프롬프트)
 
 - 자리: `src/tabs/annual_plan/plan_table/prompts/assign_months/`
-- 함께 볼 곳: 규칙 문구 상수가 변수로 주입됨 · 반환 검증 코드(지정 월 불가침·범위)
+- 함께 볼 곳: 규칙 문구 상수가 프롬프트에 함께 실림 · 결과 검증 코드(지정된 월은 바꾸지 않음, 1~12 범위만)
 - 테스트: 조립 단계 스모크
 
 **여러 회차로 나뉜 교육의 회차별 주제 배분** (프롬프트 + 검증 코드)
 
 - 자리: `src/tabs/annual_plan/plan_table/prompts/split_sessions/` · `src/tabs/annual_plan/plan_table/agent.py`의 배분 검증
-- 함께 볼 곳: 검증 실패 시 균등 폴백
+- 함께 볼 곳: 검증에 실패하면 균등 분배로 대체
 - 테스트: 스모크
 
 **학습 주제 추출(정형 목차가 아닌 학습 내용)** (프롬프트)
 
 - 자리: `src/tabs/annual_plan/plan_table/prompts/extract_topics/`
-- 함께 볼 곳: 1차는 번호 목차 정규식(코드)
+- 함께 볼 곳: 번호 목차는 코드가 먼저 읽고, 아닌 것만 LLM이 맡음
 - 테스트: 스모크
 
 **부서별 위험 특성 표** (설정 파일)

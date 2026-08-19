@@ -28,11 +28,11 @@ sidebar_position: 1
 | 발화가 작업인지 질문인지 범위 밖인지 가르는 기준 | [오케스트레이터](./orchestrator.md) |
 | 범위 밖 발화에 대한 거절 안내 말투 | [오케스트레이터](./orchestrator.md) |
 | 탭에 처음 들어왔을 때 환영 문구 | [오케스트레이터](./orchestrator.md) |
-| "처음부터 다시"로 볼 발화의 기준 | [오케스트레이터](./orchestrator.md) |
+| 재시작 요청("처음부터 다시")을 알아보는 기준 | [오케스트레이터](./orchestrator.md) |
 | 처리 중 화면에 보이는 진행 문구 | [오케스트레이터](./orchestrator.md) |
 | 질문에 답한 뒤 "변경은 아직 반영 전" 고지 문구 | [오케스트레이터](./orchestrator.md) |
 | 설문 카드의 질문 문구·보기·기본값 | [질문 에이전트](./question-agent.md) |
-| 교육방법 보기가 어디서 오는지, 조회 실패 시 보기 | [질문 에이전트](./question-agent.md) |
+| 교육방법 보기가 어디서 오는지, 조회 실패 시 예비 보기 | [질문 에이전트](./question-agent.md) |
 | 결재가 끝난 계획을 막는 기준 | [질문 에이전트](./question-agent.md) |
 | 저장된 계획을 불러올 때 값이 채워지는 규칙 | [질문 에이전트](./question-agent.md) |
 | 일괄 생성이 쓰는 답안 | [질문 에이전트](./question-agent.md) |

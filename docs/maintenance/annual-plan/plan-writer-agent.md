@@ -32,7 +32,7 @@ sidebar_position: 6
 - 자리: `src/tabs/annual_plan/plan_writer/agent.py`의 회차 생성 실행기와 응답 조립
 - 테스트: 단위 테스트
 
-**시간이 빈 교육을 되묻는 기준(공란 결정 존중)** (코드)
+**시간이 빈 교육을 되묻는 기준(공란으로 두기로 한 답은 다시 묻지 않음)** (코드)
 
 - 자리: `src/tabs/annual_plan/plan_writer/agent.py`의 미정 값 계산
 - 함께 볼 곳: 설문의 시간 처리 질문 보기

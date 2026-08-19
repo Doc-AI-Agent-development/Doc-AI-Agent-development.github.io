@@ -45,7 +45,7 @@ sidebar_position: 8
 - 자리: `src/tabs/annual_plan/inquiry/agent.py`의 본문 조회 도구
 - 테스트: 실서버 대화
 
-**전체 교육 목록 조회 때 긴 원문을 줄이는 폭** (코드)
+**전체 교육 목록 조회 때 긴 원문을 줄이는 길이** (코드)
 
 - 자리: `src/tools/data_tools.py`의 축약 래퍼
 - 테스트: 단위 테스트
