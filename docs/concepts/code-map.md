@@ -79,14 +79,14 @@ src/tabs/
 | `src/tools/` | [LLM 호출 지도](../reference/llm-calls.md), [설정 항목](../reference/config.md) |
 | `src/skills/` | [외부 의존](../reference/external-services.md) |
 | `src/graphs/` | [요청 처리 흐름](./request-lifecycle.md), [개요](../overview.md)의 탭 구조 |
-| `src/tabs/annual_plan/graph.py` | [요청 처리 흐름](./request-lifecycle.md), [시작과 진입](../annual-plan/entry.md) |
-| `src/tabs/annual_plan/router/` | [요청 처리 흐름](./request-lifecycle.md), [시작과 진입](../annual-plan/entry.md) |
-| `src/tabs/annual_plan/intake/` | [시작과 진입](../annual-plan/entry.md), [교육 목록 확정](../annual-plan/course-list.md), [설문과 질문 카드](../annual-plan/questions.md) |
-| `src/tabs/annual_plan/editor/` | [대화 반영 방식](../annual-plan/edits.md) |
-| `src/tabs/annual_plan/plan_table/` | [연간 계획표 확인](../annual-plan/plan-table.md) |
-| `src/tabs/annual_plan/plan_writer/` | [계획 생성](../annual-plan/generation.md), [계획 수정과 조회](../annual-plan/revision.md) |
-| `src/tabs/annual_plan/checker/` | [요건 검사](../annual-plan/verification.md) |
-| `src/tabs/annual_plan/inquiry/` | [계획 수정과 조회](../annual-plan/revision.md) |
+| `src/tabs/annual_plan/graph.py` | [요청 처리 흐름](./request-lifecycle.md), [오케스트레이터](../annual-plan/orchestrator.md) |
+| `src/tabs/annual_plan/router/` | [요청 처리 흐름](./request-lifecycle.md), [오케스트레이터](../annual-plan/orchestrator.md) |
+| `src/tabs/annual_plan/intake/` | [질문 에이전트](../annual-plan/question-agent.md) |
+| `src/tabs/annual_plan/editor/` | [편집 에이전트](../annual-plan/editor-agent.md) |
+| `src/tabs/annual_plan/plan_table/` | [구상 에이전트](../annual-plan/plan-table-agent.md) |
+| `src/tabs/annual_plan/plan_writer/` | [계획 작성 에이전트](../annual-plan/plan-writer-agent.md) |
+| `src/tabs/annual_plan/checker/` | [요건 검사 에이전트](../annual-plan/checker-agent.md) |
+| `src/tabs/annual_plan/inquiry/` | [조회 에이전트](../annual-plan/inquiry-agent.md) |
 | `src/tabs/edu_material/graph.py` | [요청 처리 흐름](./request-lifecycle.md) |
 | `src/tabs/edu_material/handle_request/` | [요청 처리 흐름](./request-lifecycle.md), [교육 선택과 진입](../edu-material/course-entry.md), [생성 설정과 질문 카드](../edu-material/settings.md), [첨부 자료 처리](../edu-material/uploads.md), [수정과 확정](../edu-material/revision.md) |
 | `src/tabs/edu_material/syllabus/` | [구성 계획](../edu-material/syllabus.md) |
