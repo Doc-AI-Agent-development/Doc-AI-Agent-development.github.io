@@ -57,10 +57,13 @@ sidebar_position: 3
 **합의로 확정된 결정**이어서, 바꾸면 검증이 따라야 하므로 코드 변경으로 다룹니다.
 
 - 일괄 생성의 운영 답안 — 연간 시간, 회차 수, 교육방법·평가방법, 실시월 공란
-- 실시월 배정 규칙 문구와 연중 분산 방식의 월별 배정 상한
+- 실시월 배정 규칙 문구(연중 분산 방식의 월별 배정 상한은 설정 키로 조절 —
+  [환경 변수](../reference/config.md))
 - 설문 질문·보기·기본값의 정의([설문과 질문 카드](../annual-plan/questions.md))
 - 저장 안내 문장 — 수정 안내와 조회 응대가 같은 문장을 공유
-- 회차 내용 생성의 동시 실행 상한과 호출 제한 시간
+
+회차 내용 생성을 비롯한 연간 계획 LLM 호출의 동시 실행 상한과 제한 시간은 코드 상수가
+아니라 기능별 설정 키입니다([환경 변수](../reference/config.md)의 기능별 LLM 호출 조절).
 
 ## 코드 참조
 
@@ -71,5 +74,5 @@ sidebar_position: 3
 | 설문 질문 정의 | `_template_questions` | `src/tabs/annual_plan/intake/agent.py` |
 | 저장 안내 문장 | `SAVE_FACT` | `src/tabs/annual_plan/plan_table/agent.py` |
 | 결정 문서의 필드 설명 | `EditableDoc` 계열 | `src/tabs/annual_plan/editor/schemas.py` |
-| 생성 동시 실행 상한·호출 제한 | `_MAX_CONCURRENT` / `_COURSE_TIMEOUT` | `src/tabs/annual_plan/plan_writer/agent.py` |
+| 기능별 LLM 호출 조절 키 | `annual_*_concurrency` / `annual_*_timeout_seconds` | `src/core/config.py` |
 | 부서 위험 특성 표 로더 | `dept_risk_profiles` | `src/skills/_common.py` |

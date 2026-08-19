@@ -18,6 +18,7 @@ AI 서비스와 화면(BFF) 사이의 HTTP 계약입니다. **모든 응답은 H
 | `DELETE /agent/threads/{thread_id}` | 세션 삭제. 세션의 첨부 이미지 캐시도 함께 정리 |
 | `POST /agent/threads/{thread_id}/cancel` | 진행 중인 턴 취소와 체크포인트 되돌림. 진행 중인 턴이 없으면 아무 동작 없이 성공 |
 | `GET /agent/progress/{thread_id}` | 처리 진행 상태 폴링 |
+| `POST /agent/documents/upload` | 원문자료 등록 — 파일을 받아 변환·저장·요약·색인 |
 | `POST /agent/documents/uploaded` / `deleted` | 문서함 변경 알림 — 현재는 수신만 하는 스텁이며 재색인은 수행하지 않음 |
 | `GET /health` | 서비스 상태 확인 |
 
@@ -71,9 +72,10 @@ AI 서비스와 화면(BFF) 사이의 HTTP 계약입니다. **모든 응답은 H
 | `user_id` / `user_name` | 사용자 식별자·표시명 |
 | `mode` | `auto`이면 일괄 생성 호출(대화 없이 기본값으로 생성까지 진행) |
 
-**내부 전용 키** — 탭이 턴 안과 턴 사이에 내부 신호를 나르는 언더스코어 키(`_fresh_artifacts`,
-`_generate_request`, `_exam_request_notes`)가 컨텍스트에 존재합니다. BFF는 이 키들을
-보내지 않아야 하며, **값을 해석해서도 안 됩니다**.
+**내부 전용 키** — 탭이 턴 안과 턴 사이에 내부 신호를 나르는 언더스코어 키(교육자료 생성
+탭의 `_fresh_artifacts`, `_generate_request`, `_exam_request_notes` · 연간 교육계획 탭의
+`_restart`, `_deferred_change`, `_restored`, `_edit_no_change`, `_turn_diffs`)가 컨텍스트에
+존재합니다. BFF는 이 키들을 보내지 않아야 하며, **값을 해석해서도 안 됩니다**.
 
 ## 응답 봉투
 
@@ -112,10 +114,10 @@ AI 서비스와 화면(BFF) 사이의 HTTP 계약입니다. **모든 응답은 H
 |---|---|
 | `INVALID_INPUT` | 세션 식별자·탭 누락 등 요청 형식 오류 |
 | `LLM_ERROR` | LLM 호출 구성 오류(자격 미설정, 프롬프트 변수 오류)와 계획 생성 실패 |
-| `TOOL_ERROR` | 도구 실행 오류 — 예약 코드(현재 발생 경로 없음, 도구 오류는 루프가 흡수) |
 | `STATE_NOT_FOUND` | 존재하지 않는 세션에 대한 삭제 요청 |
 | `CANCELLED` | 취소되거나 새 요청에 밀려 중단된 턴 |
-| `AGENT_TIMEOUT` | 처리 시간 초과 — 예약 코드(현재 발생 경로 없음) |
+| `UNSUPPORTED_FORMAT` | 원문자료 업로드 — 변환기가 다루지 않는 파일 형식 |
+| `CONVERSION_FAILED` | 원문자료 업로드 — 지원 형식이지만 변환 실패(손상·암호화·추출 내용 없음) |
 | `INTERNAL_ERROR` | 미분류 내부 오류 |
 
 ## 코드 참조

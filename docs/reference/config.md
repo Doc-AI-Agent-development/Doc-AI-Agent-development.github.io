@@ -33,6 +33,9 @@ sidebar_position: 5
 | `conversation_evidence_max_chars` | 담당자가 대화 중 문서 원문을 요청할 때 한 턴에 실어 오는 본문 분량 상한 — 대화 턴은 이력·근거 목록을 이미 싣고 있어 생성 호출보다 여유가 적음. 넘으면 긴 문서부터 키워드 대목 주변으로 좁힘 |
 | `document_source_dir` | 사내 문서 원문 파일의 루트 폴더 — 원문 인출과 배치 색인의 원천 |
 | `doc_index_body_max_chars` | 배치 색인이 문서 하나의 본문을 색인에 담는 분량 상한 — 오염되었거나 비정상적으로 큰 문서가 색인 품질을 해치는 것을 막는 방어 |
+| `doc_summary_crosswalk` | 배치 색인과 업로드 등록이 본문 문서와 큐레이션 요약 파일을 잇는 대응표 파일 경로 — 대응이 없는 문서는 본문 도입부로 요약을 대신함 |
+| `large_doc_chars` | 원문 인출 시 이 길이를 넘는 문서를 대형으로 표시해 통째 주입 대신 부분 참조로 전환하는 기준 |
+| `doc_upload_default_category` | 원문자료 업로드 창구가 카테고리를 받지 않았을 때 문서를 저장하는 하위 경로 |
 
 ## 교육자료 생성
 
@@ -84,12 +87,14 @@ sidebar_position: 5
 | `tool_mode` | 실제 자원 사용 / 모의 도구(LLM 포함 전체) — 모의는 유닛테스트와, LLM·검색·백엔드 없이 서버 구조를 확인하는 기동에 사용 |
 | `data_backend` | 교육 데이터 조회 — API 사용 / 빈 결과 반환 — 빈 결과 모드는 백엔드 없이 개발·테스트할 때 사용 |
 
-## 저장과 기록
+## 저장·기록과 환경 표기
 
 | 키 | 역할 |
 |---|---|
 | `agent_state_db` | 체크포인트 DB(sqlite) 파일 경로 — 세션 상태가 저장되는 곳. [상태와 세션](../concepts/state.md) 참조 |
 | `token_usage_log` | LLM 호출별 토큰 사용량이 기록되는 로그 파일 경로 — 비용·호출 폭주 확인용 |
+| `log_level` | 서비스 로그의 출력 수준 |
+| `environment` | 상태 확인 응답에 표기되는 환경 이름 — 동작에는 영향을 주지 않음 |
 
 ## 선언만 있고 읽는 코드가 없는 키
 
@@ -98,7 +103,6 @@ sidebar_position: 5
 
 | 키 | 비고 |
 |---|---|
-| `bff_base_url` | 읽는 코드 없음 |
 | `vision_images_per_doc_max` | 읽는 코드 없음 |
 | `doc_queries_per_module_max` | 읽는 코드 없음 |
-| `component_asset_base` | 실서비스 경로 미사용 — 시뮬레이션 전용 렌더 모듈만 참조 |
+| `component_asset_base` | 읽는 함수는 남아 있으나 그 함수를 부르는 코드가 없음 |
