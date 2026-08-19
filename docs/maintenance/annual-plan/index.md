@@ -26,7 +26,7 @@ sidebar_position: 1
 | 고치고 싶은 것 | 어디 |
 |---|---|
 | 발화가 작업인지 질문인지 범위 밖인지 가르는 기준 | [오케스트레이터](./orchestrator.md) |
-| 범위 밖 발화에 대한 거절 안내 말투 | [오케스트레이터](./orchestrator.md) |
+| 범위 밖 발화에 대한 거절 안내 방식 | [오케스트레이터](./orchestrator.md) |
 | 탭에 처음 들어왔을 때 환영 문구 | [오케스트레이터](./orchestrator.md) |
 | 재시작 요청을 알아보는 기준 | [오케스트레이터](./orchestrator.md) |
 | 처리 중 화면에 보이는 진행 문구 | [오케스트레이터](./orchestrator.md) |

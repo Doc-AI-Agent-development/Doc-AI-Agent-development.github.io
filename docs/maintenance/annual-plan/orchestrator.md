@@ -19,7 +19,10 @@ sidebar_position: 2
 - 함께 볼 곳: 분류 결과가 담기는 틀(`src/schemas/dialog.py`). 분류에 새 판단을 추가하려면 이 틀에 칸을 먼저 만들어야 합니다
 - 테스트: 실 LLM 배터리(모든 대화가 분류를 거침)
 
-**거절 안내 말투** (프롬프트)
+**거절 안내 방식** (프롬프트)
+
+고정 문장이 아니라 매번 새로 지어집니다. 정중하게 거절하고 대신 도울 수 있는 것을
+안내하라는 지침입니다.
 
 - 자리: `src/tabs/annual_plan/router/prompts/decline/`
 - 함께 볼 곳: LLM 호출이 실패하면 대신 나가는 고정 문구(`src/tabs/annual_plan/router/agent.py`)
