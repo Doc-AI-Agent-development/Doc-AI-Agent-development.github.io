@@ -26,13 +26,13 @@ sidebar_position: 1
 | 고치고 싶은 것 | 어디 |
 |---|---|
 | 발화가 작업인지 질문인지 범위 밖인지 가르는 기준 | [오케스트레이터](./orchestrator.md) |
-| 범위 밖 발화에 대한 거절 안내 말투 | [오케스트레이터](./orchestrator.md) |
+| 범위 밖 발화에 대한 거절 안내 방식 | [오케스트레이터](./orchestrator.md) |
 | 탭에 처음 들어왔을 때 환영 문구 | [오케스트레이터](./orchestrator.md) |
-| "처음부터 다시"로 볼 발화의 기준 | [오케스트레이터](./orchestrator.md) |
+| 재시작 요청을 알아보는 기준 | [오케스트레이터](./orchestrator.md) |
 | 처리 중 화면에 보이는 진행 문구 | [오케스트레이터](./orchestrator.md) |
-| 질문에 답한 뒤 "변경은 아직 반영 전" 고지 문구 | [오케스트레이터](./orchestrator.md) |
+| 질문에 답한 뒤 붙는 변경 미반영 고지 문구 | [오케스트레이터](./orchestrator.md) |
 | 설문 카드의 질문 문구·보기·기본값 | [질문 에이전트](./question-agent.md) |
-| 교육방법 보기가 어디서 오는지, 조회 실패 시 보기 | [질문 에이전트](./question-agent.md) |
+| 교육방법 보기가 어디서 오는지, 조회 실패 시 예비 보기 | [질문 에이전트](./question-agent.md) |
 | 결재가 끝난 계획을 막는 기준 | [질문 에이전트](./question-agent.md) |
 | 저장된 계획을 불러올 때 값이 채워지는 규칙 | [질문 에이전트](./question-agent.md) |
 | 일괄 생성이 쓰는 답안 | [질문 에이전트](./question-agent.md) |
@@ -41,7 +41,7 @@ sidebar_position: 1
 | 교육 목록 표·설문 카드의 머리말과 안내문 | [질문 에이전트](./question-agent.md) |
 | 수시 교육을 기본으로 넣을지 뺄지 | [질문 에이전트](./question-agent.md) |
 | 발화에서 값(시간·회차·방법·평가·강사·메모)을 읽는 규칙 | [편집 에이전트](./editor-agent.md) |
-| "다 빼줘" 같은 총칭의 범위 | [편집 에이전트](./editor-agent.md) |
+| 뭉뚱그린 지칭(전부·나머지)이 가리키는 범위 | [편집 에이전트](./editor-agent.md) |
 | 강사 이름에 직책 글자가 들어가지 않게 하는 규칙 | [편집 에이전트](./editor-agent.md) |
 | 반영 보고("✅ 반영: …")의 판정과 문구 | [편집 에이전트](./editor-agent.md) |
 | 교육방법·평가방법으로 허용하는 표준 라벨 | [편집 에이전트](./editor-agent.md) |
@@ -62,8 +62,8 @@ sidebar_position: 1
 | 생성에 실패했을 때 안내와 재시도 | [계획 작성 에이전트](./plan-writer-agent.md) |
 | 시간이 빈 교육을 되묻는 기준 | [계획 작성 에이전트](./plan-writer-agent.md) |
 | 회차·교육을 늘렸을 때 기존 내용을 보존하고 새 부분만 만드는 규칙 | [계획 작성 에이전트](./plan-writer-agent.md) |
-| "내용에 ~ 넣어줘" 같은 본문 수정 규칙 | [계획 작성 에이전트](./plan-writer-agent.md) |
-| "저장해줘"에 대한 안내 문구 | [계획 작성 에이전트](./plan-writer-agent.md) |
+| 교육 내용(본문) 수정 요청의 처리 규칙 | [계획 작성 에이전트](./plan-writer-agent.md) |
+| 저장 요청에 대한 안내 문구 | [계획 작성 에이전트](./plan-writer-agent.md) |
 | 요건 검사가 짚는 기준·개수·말투 | [요건 검사 에이전트](./checker-agent.md) |
 | 요건 검사를 수행하는 시점 | [요건 검사 에이전트](./checker-agent.md) |
 | 검사 결과 데이터의 모양(화면 계약) | [요건 검사 에이전트](./checker-agent.md) |
