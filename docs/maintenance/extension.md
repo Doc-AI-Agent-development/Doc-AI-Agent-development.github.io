@@ -20,8 +20,7 @@ sidebar_position: 2
 
 | 수정 위치 | 내용 |
 |---|---|
-| `src/graphs/` | 탭 그래프 빌더 등록 |
-| `src/api/routes.py` | 탭 메타(라벨·준비 상태) |
+| `src/graphs/tabs/` | 탭 그래프 빌더와 탭 메타(라벨·준비 상태) 등록 — 탭 목록 API는 이 등록을 그대로 돌려줌 |
 | `src/api/progress.py` | 진행 상태 라벨 등록 |
 
 ## 교육자료 생성 탭

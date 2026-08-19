@@ -4,12 +4,13 @@ sidebar_position: 2
 
 # 엔드포인트
 
-이 서비스가 외부에 제공하는 HTTP 인터페이스는 여덟 개입니다. 이 페이지는 각각을 언제
+이 서비스가 외부에 제공하는 HTTP 인터페이스는 아홉 개입니다. 이 페이지는 각각을 언제
 어떻게 부르는지 다룹니다. 요청·응답의 공통 구조와 컨텍스트 키, 오류 코드는
 [API 계약](./api.md)에 있습니다.
 
 작업이 실제로 일어나는 창구는 `POST /agent/invoke` 하나뿐입니다. 계획 수립이든 교육자료
-생성이든 요약이든 모두 이 창구로 들어오고, 요청에 실린 탭 식별자로 갈립니다. 나머지
+생성이든 요약이든 모두 이 창구로 들어오고, 요청에 실린 탭 식별자로 갈립니다. 원문자료
+업로드 창구는 대화가 아니라 사내 문서 코퍼스에 문서를 등록하는 별도 작업이며, 나머지
 일곱은 세션 관리와 상태 조회, 알림 접수입니다.
 
 | 메서드·경로 | 성격 |
@@ -20,6 +21,7 @@ sidebar_position: 2
 | `DELETE /agent/threads/{thread_id}` | 세션 관리 |
 | `GET /tabs` | 조회 |
 | `GET /health` | 조회 |
+| `POST /agent/documents/upload` | 원문자료 등록 |
 | `POST /agent/documents/uploaded` · `deleted` | 알림 접수 |
 
 ## POST /agent/invoke
@@ -112,6 +114,27 @@ sidebar_position: 2
 {"status": "ok", "service": "backend_ai", "environment": "development", "model": "…"}
 ```
 
+## POST /agent/documents/upload
+
+원문 문서 파일을 받아 사내 문서 코퍼스에 등록합니다. 원문자료 관리 화면(BFF)이 부르는
+창구이며, 담당자가 대화에 첨부하는 파일과는 다른 경로입니다.
+
+요청은 multipart 형식입니다. 파일이 필수이고, 저장 카테고리·외부 문서 식별자·원본
+파일명 보정은 선택입니다. 서비스는 파일을 텍스트 문서로 변환해 저장하고, 요약을 만들고,
+검색 색인에 넣는 순서로 처리하며 원본 바이트는 보관하지 않습니다 — 원본 보관은 호출측
+소관입니다.
+
+```json
+{"success": true,
+ "data": {"accepted": true, "path": "…/content.md", "images": 3,
+          "summary": true, "indexed": true},
+ "meta": {}}
+```
+
+`summary`와 `indexed`는 요약과 색인이 실제로 반영됐는지의 값입니다. 둘 중 하나가
+실패해도 등록 자체는 성공으로 응답하며, 그 경우 사유가 `summary_error`·`index_error`로
+함께 실립니다. 지원하지 않는 형식이거나 변환에 실패하면 각각의 오류 코드로 응답합니다.
+
 ## POST /agent/documents/uploaded · deleted
 
 관리자 문서함에 원문 문서가 올라오거나 지워졌을 때 백엔드가 알려 주는 창구입니다. 재업로드
@@ -130,8 +153,8 @@ sidebar_position: 2
 `doc_id`는 필수이며 비어 있으면 입력 오류로 응답합니다. 나머지 필드(원본 파일명, 변환문서
 경로, 버전 표기)는 선택이며 기록에만 씁니다.
 
-이 창구는 담당자가 대화에 첨부하는 파일과는 **다른 경로**입니다. 채팅 첨부는 요청의
-컨텍스트로 전달됩니다.
+이 창구는 담당자가 대화에 첨부하는 파일이나 원문자료 업로드 창구와는 **다른 경로**입니다.
+채팅 첨부는 요청의 컨텍스트로 전달되고, 원문자료 업로드는 파일을 직접 받아 등록합니다.
 
 ## 응답 형식의 예외
 
@@ -144,6 +167,7 @@ sidebar_position: 2
 | 구성 요소 | 코드 이름 | 모듈 경로 |
 |---|---|---|
 | 엔드포인트 정의 | — | `src/api/routes.py` |
+| 원문자료 업로드 창구 | `upload_document` | `src/api/documents.py` |
 | 서비스 기동과 상태 확인 | — | `src/api/main.py` |
 | 진행 상태 수집 | `ProgressHandler` | `src/api/progress.py` |
 | 턴 동시성·취소·되돌림 | `begin_exclusive_turn` / `cancel_active_turn` | `src/api/turns.py` |
