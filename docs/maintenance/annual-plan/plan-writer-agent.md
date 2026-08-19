@@ -44,13 +44,13 @@ sidebar_position: 6
 - 함께 볼 곳: 구상 에이전트의 완성 규칙
 - 테스트: 생성 후 단계 스모크
 
-**"내용에 ~ 넣어줘" 같은 본문 수정 규칙** (프롬프트 + 코드)
+**교육 내용(본문) 수정 요청의 처리 규칙** (프롬프트 + 코드)
 
 - 자리: `src/tabs/annual_plan/plan_writer/prompts/describe/`의 수정 모드 절 · `src/tabs/annual_plan/plan_writer/agent.py`의 재작성 함수
 - 함께 볼 곳: 편집 에이전트가 넘기는 내용 수정 요구 모델
 - 테스트: 생성 후 단계 스모크
 
-**"저장해줘"에 대한 안내 문구** (코드 상수)
+**저장 요청에 대한 안내 문구** (코드 상수)
 
 - 자리: `src/tabs/annual_plan/plan_table/agent.py`의 저장 사실 문장
 - 함께 볼 곳: 조회 응대·추천 문구가 같은 문장을 받음(한 곳만 고치면 됨)

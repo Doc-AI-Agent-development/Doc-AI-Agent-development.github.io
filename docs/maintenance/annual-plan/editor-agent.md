@@ -19,7 +19,7 @@ sidebar_position: 4
 - 함께 볼 곳: 옮겨 적는 병합 규칙(`src/tabs/annual_plan/editor/projection.py`). 프롬프트가 가르치는 출력 형태와 한 벌
 - 테스트: 단계 스모크(목록·설문, 계획표, 생성 후) + 배터리
 
-**"다 빼줘"·"나머지도" 같은 총칭의 범위** (프롬프트 + 코드)
+**뭉뚱그린 지칭(전부·나머지)이 가리키는 범위** (프롬프트 + 코드)
 
 - 자리: 같은 프롬프트의 화면 범위 절과, 호출하는 세 에이전트의 화면 설명 함수(`src/tabs/annual_plan/`의 `intake/agent.py` · `plan_table/agent.py` · `plan_writer/agent.py`)
 - 함께 볼 곳: 화면 설명은 "보이는 교육 구분"과 "본문 생성 여부"를 밝혀야 함
