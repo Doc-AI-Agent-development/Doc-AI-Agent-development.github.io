@@ -15,9 +15,9 @@ sidebar_position: 6
 | 요약본 | `digest` | `artifacts.digest` | `src/schemas/education_content.py` | [교육자료 생성](../edu-material/generation.md) |
 | 시험지 | `exam` | `artifacts.exam` | `src/schemas/exam.py` | [시험과 강의평가](../edu-material/exam.md) |
 | 강의평가 설문 | `survey` | `artifacts.survey` | `src/schemas/exam.py` | [시험과 강의평가](../edu-material/exam.md) |
-| 연간 계획 | `annual_plan` | `artifacts.annual_plan` | `src/schemas/training_plan.py` | [계획 생성](../annual-plan/generation.md) |
-| 계획 기준선 | `checklist` | `artifacts.checklist` | `src/schemas/checklist.py` | [연간 계획표 확인](../annual-plan/plan-table.md) |
-| 요건 검사 결과 | `verification` | `artifacts.verification` | `src/schemas/verification.py` | [요건 검사](../annual-plan/verification.md) |
+| 연간 계획 | `annual_plan` | `artifacts.annual_plan` | `src/schemas/training_plan.py` | [계획 작성 에이전트](../annual-plan/plan-writer-agent.md) |
+| 계획 기준선 | `checklist` | `artifacts.checklist` | `src/schemas/checklist.py` | [구상 에이전트](../annual-plan/plan-table-agent.md) |
+| 요건 검사 결과 | `verification` | `artifacts.verification` | `src/schemas/verification.py` | [요건 검사 에이전트](../annual-plan/checker-agent.md) |
 
 ## 핵심 개념
 
@@ -31,9 +31,9 @@ sidebar_position: 6
 
 | 한국어 용어 | 코드 이름 | 정의 위치 | 관련 문서 |
 |---|---|---|---|
-| 설문 시트 | `QuestionSheet` | `src/schemas/questions.py` | [설문과 질문 카드](../annual-plan/questions.md) |
-| 결정 문서 | `EditableDoc` | `src/tabs/annual_plan/editor/schemas.py` | [대화 반영 방식](../annual-plan/edits.md) |
-| 회차 계획 | `SessionPlan` | `src/schemas/checklist.py` | [연간 계획표 확인](../annual-plan/plan-table.md) |
+| 설문 시트 | `QuestionSheet` | `src/schemas/questions.py` | [질문 에이전트](../annual-plan/question-agent.md) |
+| 결정 문서 | `EditableDoc` | `src/tabs/annual_plan/editor/schemas.py` | [편집 에이전트](../annual-plan/editor-agent.md) |
+| 회차 계획 | `SessionPlan` | `src/schemas/checklist.py` | [구상 에이전트](../annual-plan/plan-table-agent.md) |
 
 ### 교육자료 생성 탭
 
@@ -59,13 +59,13 @@ sidebar_position: 6
 
 | 한국어 용어 | 코드 이름 | 위치 | 관련 문서 |
 |---|---|---|---|
-| 연간 탭 오케스트레이터 | `AnnualRouterAgent` | `src/tabs/annual_plan/router/agent.py` | [요청 처리 흐름](../concepts/request-lifecycle.md) |
-| 질문 에이전트 | `IntakeAgent` | `src/tabs/annual_plan/intake/` | [설문과 질문 카드](../annual-plan/questions.md) |
-| 구상 에이전트 | `PlanTableAgent` | `src/tabs/annual_plan/plan_table/` | [연간 계획표 확인](../annual-plan/plan-table.md) |
-| 편집 에이전트 | `PlanEditorAgent` | `src/tabs/annual_plan/editor/` | [대화 반영 방식](../annual-plan/edits.md) |
-| 계획 작성 에이전트 | `PlanWriterAgent` | `src/tabs/annual_plan/plan_writer/` | [계획 생성](../annual-plan/generation.md) |
-| 요건 검사 에이전트 | `PlanCheckerAgent` | `src/tabs/annual_plan/checker/` | [요건 검사](../annual-plan/verification.md) |
-| 조회 에이전트 | `InquiryAgent` | `src/tabs/annual_plan/inquiry/` | [계획 수정과 조회](../annual-plan/revision.md) |
+| 연간 탭 오케스트레이터 | `AnnualRouterAgent` | `src/tabs/annual_plan/router/agent.py` | [오케스트레이터](../annual-plan/orchestrator.md) |
+| 질문 에이전트 | `IntakeAgent` | `src/tabs/annual_plan/intake/` | [질문 에이전트](../annual-plan/question-agent.md) |
+| 구상 에이전트 | `PlanTableAgent` | `src/tabs/annual_plan/plan_table/` | [구상 에이전트](../annual-plan/plan-table-agent.md) |
+| 편집 에이전트 | `PlanEditorAgent` | `src/tabs/annual_plan/editor/` | [편집 에이전트](../annual-plan/editor-agent.md) |
+| 계획 작성 에이전트 | `PlanWriterAgent` | `src/tabs/annual_plan/plan_writer/` | [계획 작성 에이전트](../annual-plan/plan-writer-agent.md) |
+| 요건 검사 에이전트 | `PlanCheckerAgent` | `src/tabs/annual_plan/checker/` | [요건 검사 에이전트](../annual-plan/checker-agent.md) |
+| 조회 에이전트 | `InquiryAgent` | `src/tabs/annual_plan/inquiry/` | [조회 에이전트](../annual-plan/inquiry-agent.md) |
 
 ### 교육자료 생성 탭
 
